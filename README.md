@@ -8,10 +8,10 @@ Name: Daniel, Daniela und Jason
 # **Fullstack Webentwicklung**
 
 
-### Who doe What?
-Daniela: Most Frontend und teilt rest auf anderen 2 auf.
-Daniel: Backend(Alles ausser Datenbanken)
-Jason: Datenbanken & Virtualisierung, Rest 
+### Who's Expert?
+Daniela: Most Frontend. 
+Daniel: Backend(Alles ausser Datenbanken).
+Jason: Datenbanken & Virtualisierung, Rest.
 
 
 ### Anforderungen ans Projekt
