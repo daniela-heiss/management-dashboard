@@ -1,5 +1,5 @@
 ---
-Date: 20.10.23
+Date: 20.10.23 - Until End of Project
 Title: Fullstack Webdev
 Name: Daniel, Daniela und Jason
 ---
