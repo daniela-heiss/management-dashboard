@@ -48,7 +48,7 @@ Backend auch Docker?
 Andere distro's funktionieren auch so, nur halt mit eigenem Package manager.
 Dann das repo clonen und dann:
 
-> docker-compose -f docker-compose.yml up
+> docker-compose -f docker-compose.yml up --detach
 
 #### Database
 Hier stehen paar notizen zur DB

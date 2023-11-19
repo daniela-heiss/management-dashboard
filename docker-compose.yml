@@ -1,7 +1,18 @@
 # Use root/example as user/password credentials
-version: '3.8'
+version: '3'
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    entrypoint: ./development-entrypoint.sh
+    ports:
+      - 3000:3000
+    env_file:
+      - .env.development
+    depends_on:
+      - fwaProject
 
   fwaProject:
     image: mariadb:11.1.2
@@ -11,6 +22,6 @@ services:
   phpmyadmin:
     image: phpmyadmin:5.2.1
     ports:
-      - 8080:80
+      - 8085:80
     environment:
       - PMA_ARBITRARY=1
