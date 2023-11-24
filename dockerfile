@@ -3,18 +3,15 @@ WORKDIR /app
 COPY . ./
 COPY .env.development ./.env
 
-RUN npm init -y
 RUN npm install
 RUN npm install -g typescript
 
-RUN npm install -g sequelize-cli
+RUN npm install --save sequelize
+RUN npm install -g mariadb
 RUN npm install -g nodemon
 
-RUN npm run build
 RUN rm -f .npmrc
 
-RUN cp -R res/ dist/
-RUN chmod 755 docker/entrypoint.sh
 EXPOSE 8000
 
 EXPOSE 3000

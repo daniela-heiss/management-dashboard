@@ -6,7 +6,6 @@ services:
     build:
       context: .
       dockerfile: ./dockerfile
-    entrypoint: ./development-entrypoint.sh
     ports:
       - 3000:3000
     env_file:
