@@ -11,7 +11,6 @@ RUN npm install -g mariadb
 RUN npm install -g nodemon
 
 RUN rm -f .npmrc
-
 EXPOSE 8000
 
 EXPOSE 3000
