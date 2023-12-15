@@ -1,26 +1,25 @@
-import {DataTypes, Sequelize } from "sequelize";
+import{ dataTypes,sequelize} from './dbconnection.js';
 
-const region = Sequelize.define('REGION',
+const region = sequelize.define('REGION',
 {
     R_REGIONKEY:
     {
-        type: DataTypes.UUID,
-        autoIncrement: true,
+        type: dataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
     R_NAME:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     R_COMMENT:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     }
 
-})
+},{freezeTableName: true, timestamps: false})
 
 export{
     region

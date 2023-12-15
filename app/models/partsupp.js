@@ -1,38 +1,36 @@
-import { DATE, DataTypes, Sequelize } from "sequelize";
+import{ dataTypes,sequelize} from './dbconnection.js';
 
-const Partsupp = Sequelize.define('PARTSUPP',
+const partsupp = sequelize.define('PARTSUPP',
 {
     PS_PARTKEY: 
     {
-        type: DataTypes.UUID,
-        autoIncrement: true,
+        type: dataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
     PS_SUPPKEY:
     {
-        type: DataTypes.UUID,
-        autoIncrement: true,
+        type: dataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
     PS_AVAILQTY:
     {
-        type: DataTypes.INTEGER,
+        type: dataTypes.INTEGER,
         allowNull: false
     },
     PS_SUPPLYCOST:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     PS_COMMENT:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     }
-})
+},{freezeTableName: true, timestamps: false})
 
 export{
-    Partsupp
+    partsupp
 }

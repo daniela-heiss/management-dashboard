@@ -1,42 +1,46 @@
-import { DataTypes, Sequelize } from "sequelize";
+import{ dataTypes,sequelize} from './dbconnection.js';
 
-const supplier = Sequelize.define('SUPPLIER',
+const supplier = sequelize.define('SUPPLIER',
 {
     S_SUPPKEY: 
     {
-        type: DataTypes.UUID,
+        type: dataTypes.UUID,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
     },
     S_NAME:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     S_ADDRESS:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     },
     S_NATIONKEY:
     {
-        type: DataTypes.UUID,
+        type: dataTypes.UUID,
         allowNull: false
     },
     S_PHONE:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     S_ACCTBAL:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     S_COMMENT:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     }
-})
+},{freezeTableName: true, timestamps: false})
+
+export{
+    supplier
+}

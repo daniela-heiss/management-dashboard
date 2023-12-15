@@ -1,9 +1,11 @@
-import { Sequelize} from 'sequelize'
+import { Sequelize, DataTypes} from 'sequelize'
 
+const dataTypes = DataTypes;
 const sequelize = new Sequelize('fwaProject','root','example',{
     host: '127.0.0.1',
     port: '3306',
     dialect: 'mariadb',
+    logging: false,
     pool: {
       max: 5, // Adjust this based on your needs
       min: 0,
@@ -17,5 +19,6 @@ const sequelize = new Sequelize('fwaProject','root','example',{
 
 
 export{
-  sequelize
+  sequelize,
+  dataTypes
 }

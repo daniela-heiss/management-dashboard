@@ -1,95 +1,90 @@
-import { DataTypes, Sequelize } from "sequelize";
+import{ dataTypes,sequelize} from './dbconnection.js';
 
-
-const lineItem = Sequelize.define('lineitem',
+const lineItem = sequelize.define('LINEITEM',
 {
     L_ORDERKEY: 
     {
-        type: DataTypes.UUID,
-        autoIncrement: true,
+        type: dataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
     L_PARTKEY:
     {
-        type: DataTypes.UUID,
-        autoIncrement: true,
+        type: dataTypes.UUID,
         allowNull: false
     },
     L_SUPPKEY:
     {
-        type: DataTypes.UUID,
-        autoIncrement: true,
+        type: dataTypes.UUID,
         allowNull: false
     },
     L_LINENUMBER:
     {
-        type: DataTypes.UUID,
+        type: dataTypes.UUID,
         primaryKey: true,
-        autoIncrement: true,
         allowNull: false
     },
     L_QUANTITY:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     L_EXTENDEDPRICE:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     L_DISCOUNT:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     L_TAX:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     L_RETURNFLAG:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     L_LINESTATUS:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     L_SHIPDATE: 
     {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
         allowNull: false
     },
     L_COMMITDATE:
     {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
         allowNull: false
     },
     L_RECEIPTDATE:
     {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
         allowNull: false
     },
     L_SHIPINSTRUCT:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     L_SHIPMODE:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     L_COMMENT:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     }
-})
+},{freezeTableName: true, timestamps: false})
 
 export{
     lineItem

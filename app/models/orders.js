@@ -1,56 +1,56 @@
-import {DataTypes, Sequelize } from "sequelize";
+import{ dataTypes,sequelize} from './dbconnection.js';
 
-const orders = Sequelize.define('ORDERS',
+const order = sequelize.define('ORDERS',
 {
     O_ORDERKEY: 
     {
-        type: DataTypes.UUID,
+        type: dataTypes.UUID,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
     },
     O_CUSTKEY:
     {
-        type: DataTypes.UUID,
+        type: dataTypes.UUID,
         allowNull: false
     },
     O_ORDERSTATUS:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     O_TOTALPRICE:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     O_ORDERDATE:
     {
-        type: DataTypes.DATE,
+        type: dataTypes.DATE,
         allowNull: false
     },
     O_ORDERPRIORITY:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     O_CLERK:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     O_SHIPPRIORITY:
     {
-        type: DataTypes.INTEGER,
+        type: dataTypes.INTEGER,
         allowNull: false
     },
     O_COMMENT:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     }
-})
+},{freezeTableName: true, timestamps: false})
 
 export{
-    orders
+    order
 }

@@ -1,57 +1,57 @@
-import { DATE, DataTypes, Sequelize } from "sequelize";
+import{ dataTypes,sequelize} from './dbconnection.js';
 
-const Part = Sequelize.define('PART',
+const part = sequelize.define('PART',
 {
     P_PARTKEY: 
     {
-        type: DataTypes.UUID,
+        type: dataTypes.UUID,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
     },
     P_NAME:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     },
     P_MFGR:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     P_BRAND:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     P_TYPE:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     },
     P_SIZE:
     {
-        type: DataTypes.INTEGER,
+        type: dataTypes.INTEGER,
         allowNull: false
     },
     P_CONTAINER:
     {
-        type: DataTypes.TEXT,
+        type: dataTypes.TEXT,
         allowNull: false
     },
     P_RETAILPRICE:
     {
-        type: DataTypes.DECIMAL,
+        type: dataTypes.DECIMAL,
         allowNull: false
     },
     P_COMMENT:
     {
-        type: DataTypes.STRING,
+        type: dataTypes.STRING,
         allowNull: false
     }
     
-})
+},{freezeTableName: true, timestamps: false})
 
 export{
-    Part
+    part
 }
