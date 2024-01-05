@@ -13,11 +13,11 @@ export class ProfitChartComponent{
     this.chart = new Chart('profitChart', {
       type: 'line',
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sep', 'Nov', 'Dec'],
         datasets: [{
           label: 'Profits',
-          data: [1000, 1500, 1200, 1700, 1600, 2000],
-          borderColor: 'blue',
+          data: [1000, 1500, 1200, 1700, 1600, 2000, 3000, 2500, 2100, 2300],
+          borderColor: 'green',
           fill: false
         }]
       },

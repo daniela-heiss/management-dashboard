@@ -11,33 +11,41 @@ export class OrdersComponent {
 
 const Orders = [
   {
-      productName: 'JavaScript Tutorial',
-      productNumber: '85743',
-      paymentStatus: 'Due',
-      status: 'Pending'
+      orderNumber: '',
+      customerNumber: '',
+      status: '',
+      totalPrice: '',
+      orderDate:'',
+      orderPriority: '',
+      clerk: '',
+      shippingPriority: '',
+      comments: ''
   },
   {
-      productName: 'CSS Full Course',
-      productNumber: '97245',
-      paymentStatus: 'Refunded',
-      status: 'Declined'
-  },
-  {
-      productName: 'Flex-Box Tutorial',
-      productNumber: '36452',
-      paymentStatus: 'Paid',
-      status: 'Active'
+    orderNumber: '',
+    customerNumber: '',
+    status: '',
+    totalPrice: '',
+    orderDate:'',
+    orderPriority: '',
+    clerk: '',
+    shippingPriority: '',
+    comments: ''
   },
 ]
 
 //Orders.forEach(order => {
   //const tr = document.createElement('tr');
   //const trContent = `
-    //  <td>${order.productName}</td>
-      //<td>${order.productNumber}</td>
-      //<td>${order.paymentStatus}</td>
-      //<td class="${order.status === 'Declined' ? 'danger' : order.status === 'Pending' ? 'warning' : 'primary'}">${order.status}</td>
-      //<td class="primary">Details</td>
+    //  <td>${order.orderNumber}</td>
+      //<td>${order.customerNumber}</td>
+      //<td>${order.status}</td>
+      //<td>${order.totalPrice}</td>
+      //<td>${order.orderDate}</td>
+      //<td>${order.orderPriority}</td>
+      //<td>${order.clerk}</td>
+      //<td>${order.shippingPriority}</td>
+      //<td>${order.comments}</td>
   //`;
   //tr.innerHTML = trContent;
   //document.querySelector('table tbody').appendChild(tr);

@@ -1,13 +1,13 @@
 
-main .recent-orders{
+main .orderTable{
     margin-top: 1.3rem;
 }
 
-main .recent-orders h2{
+main .orderTable h2{
     margin-bottom: 0.8rem;
 }
 
-main .recent-orders table{
+main .orderTable table{
     background-color: var(--color-white);
     width: 100%;
     padding: var(--card-padding);
@@ -17,7 +17,7 @@ main .recent-orders table{
     transition: all 0.3s ease;
 }
 
-main .recent-orders table:hover{
+main .orderTable table:hover{
     box-shadow: none;
 }
 
@@ -31,9 +31,9 @@ main table tbody tr:last-child td{
     border: none;
 }
 
-main .recent-orders a{
+main .orderTable a{
     text-align: center;
     display: block;
     margin: 1rem auto;
-    color: var(--color-primary);
+    color: var(--color-font);
 }

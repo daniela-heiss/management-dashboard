@@ -1,15 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
-    --color-primary: #6C9BCF;
-    --color-danger: #FF0060;
-    --color-success: #1B9C85;
-    --color-warning: #F7D060;
+    //--color-nav: #7d8da1;
+    //--color-light: rgba(132, 139, 200, 0.18);
+    //--color-dark-variant: #677483;
+    //--color-background: #f6f6f9;
+    --color-background: #e4eee9;
+    --color-light: rgba(92, 179, 98, 0.18);
+    --color-dark-variant: #748a7a;
+    --color-font: #111d14;
     --color-white: #fff;
-    --color-info-dark: #7d8da1;
-    --color-dark: #363949;
-    --color-light: rgba(132, 139, 200, 0.18);
-    --color-dark-variant: #677483;
-    --color-background: #f6f6f9;
 
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
@@ -25,7 +24,6 @@
     margin: 0;
     padding: 0;
     outline: 0;
-    //appearance: 0;
     border: 0;
     text-decoration: none;
     box-sizing: border-box;
@@ -39,10 +37,6 @@
     grid-template-columns: 12rem 0 auto;
 }
 
-  aside{
-    height: 100vh;
-}
-
 body{
     width: 100vw;
     height: 100vh;
@@ -51,39 +45,13 @@ body{
     overflow-x: hidden;
     color: var(--color-dark);
     background-color: var(--color-background);
+    font-family: Roboto, 
+    "Helvetica Neue", 
+    sans-serif; 
 }
-html, body { 
-    height: 100%;
-    --mat-tree-container-background-color: white;
-    --mat-tree-node-text-color: rgba(0, 0, 0, .87); 
-
-
-}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 main{
     margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
 }
 
-/*.modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
-}
-
-.cdk-overlay-pane {
-    position: absolute;
-    pointer-events: auto;
-    box-sizing: border-box;
-    z-index: 1000;
-    display: flex;
-    max-width: 100%;
-    max-height: 100%;
-}*/
