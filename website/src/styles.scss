@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    //--color-nav: #7d8da1;
+    //--color-light: rgba(132, 139, 200, 0.18);
+    //--color-dark-variant: #677483;
+    //--color-background: #f6f6f9;
+    --color-background: #e4eee9;
+    --color-light: rgba(92, 179, 98, 0.18);
+    --color-dark-variant: #748a7a;
+    --color-font: #111d14;
+    --color-white: #fff;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 12rem 0 auto;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+    font-family: Roboto, 
+    "Helvetica Neue", 
+    sans-serif; 
+}
+
+main{
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
