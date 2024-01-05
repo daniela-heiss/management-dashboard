@@ -1,10 +1,11 @@
 import Router from 'express'
 import { getAllCustomers} from '../controller/select.js'
-import { getHighRevenue } from '../controller/select.js';
+import { getHighRevenue } from '../controller/select.js'
+import {cusWithMostOrders} from '../controller/select.js'
 
-const router = Router();
+const routerCustomer = Router();
 
-router.get('/', getAllCustomers);
-router.get("/test2",getHighRevenue);
+routerCustomer.get('/customer', getAllCustomers);
+routerCustomer.get('/customer_highest',getHighRevenue);
 
-export{router}
+export{routerCustomer}

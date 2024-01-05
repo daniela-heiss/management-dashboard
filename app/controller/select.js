@@ -7,17 +7,68 @@ import {part} from '../models/part.js'
 import {partsupp} from '../models/partsupp.js'
 import {region} from '../models/region.js'
 import {supplier} from '../models/supplier.js'
-import { where } from 'sequelize'
 import { sequelize } from '../models/dbconnection.js'
+import { Sequelize } from 'sequelize'
 
 // Find all costumer
 async function getAllCustomers(request,response)
 {
     const customers = await costumer.findAll();
-    console.log("All Customer:", JSON.stringify(customers, null, 2));
     response.json(customers);
 }
+// Function to get the top 3 Highest Revenue
+async function getHighRevenue(request,response)
+{
+    const costumersRev = await costumer.findAll( 
+    {
+        limit: 3,
+        order: sequelize.literal('(C_ACCTBAL) DESC'),
+    });
+   response.json(costumersRev);
+}
 
+// Function to get customers with the most orders
+async function cusWithMostOrders(request,response)
+{
+    const costumerOrder = await order.findAll(
+    {  
+        attributes: ['O_CUSTKEY', [sequelize.fn('COUNT', 'O_CUSTKEY'), 'CountedOrders']],
+        group: ['O_CUSTKEY'],
+        order: [[sequelize.literal('CountedOrders'),'DESC']],
+        limit: 5
+    });
+
+    response.json(costumerOrder);
+}   
+
+// Function to find the highest Revenue
+async function getTotalRev(request,response,startDate, endDate){
+    const results  = await lineItem.findAll(
+    {
+        attributes: [
+            [Sequelize.fn('SUM', Sequelize.literal('((L_EXTENDEDPRICE * (1 - L_DISCOUNT))* L_QUANTITY)')),'totalRev']
+        ],
+        include: [
+            {
+                model: order,
+                where:{
+                    O_ORDERDATE:{
+                        [Sequelize.Op.between]:[startDate,endDate]
+                    }
+                }
+            }
+        ]
+        
+    });
+
+    const totalRevenues = results.map(result => result.get('totalRev'));
+    response.json(totalRevenues);
+}
+
+async function getLastMonthRev(request,response){
+    const lastMonthRev = await order.sum('O_TOTALPRICE')
+    response.json(lastMonthRev);
+}
 // Find all lineItems
 async function getAllLineItems(request,response)
 {
@@ -76,5 +127,8 @@ async function getAllSupplier(request, response)
 export{
     getAllSupplier,
     getAllCustomers,
-    getHighRevenue
+    getHighRevenue,
+    cusWithMostOrders,
+    getTotalRev,
+    getLastMonthRev
 }

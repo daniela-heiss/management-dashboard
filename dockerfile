@@ -9,6 +9,7 @@ RUN npm install -g typescript
 RUN npm install --save sequelize
 RUN npm install -g mariadb
 RUN npm install -g nodemon
+RUN npm install -g directory-import
 
 RUN rm -f .npmrc
 EXPOSE 8000
