@@ -17,6 +17,9 @@ import { FormsModule } from "@angular/forms";
 import { RevenueComponent } from './revenue/revenue.component';
 import { CustomerStatsComponent } from './customer-stats/customer-stats.component';
 import { ProfitsComponent } from './profits/profits.component';
+import { RevLastMonthComponent } from './rev-last-month/rev-last-month.component';
+import { RevNextYearComponent } from './rev-next-year/rev-next-year.component';
+import { RevLastYearComponent } from './rev-last-year/rev-last-year.component';
  
 
 @NgModule({
@@ -29,7 +32,10 @@ import { ProfitsComponent } from './profits/profits.component';
     ProfitChartComponent,
     RevenueComponent,
     CustomerStatsComponent,
-    ProfitsComponent
+    ProfitsComponent,
+    RevLastMonthComponent,
+    RevNextYearComponent,
+    RevLastYearComponent
   ],
   imports: [
     BrowserModule,

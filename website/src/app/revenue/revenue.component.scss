@@ -1,4 +1,4 @@
-.revenueBlock{
+/*.revenueBlock{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.6rem;
@@ -19,6 +19,25 @@
 }
 
 .revenueBlock h3{
+    margin-left: 0.6rem;
+    font-size: 1rem;
+}*/
+
+div{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+div:hover{
+    box-shadow: none;
+}
+
+h3{
     margin-left: 0.6rem;
     font-size: 1rem;
 }
