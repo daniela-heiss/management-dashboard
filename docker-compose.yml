@@ -17,9 +17,13 @@ services:
   fwaProject:
     container_name: db
     image: mariadb:11.1.2
+    build:
+      context: .
+      dockerfile: ./dockerfile
     ports:
       - 3306:3306
     environment:
+      MYSQL_DATABASE: fwaProject
       MARIADB_ROOT_PASSWORD: example
 
   phpmyadmin:

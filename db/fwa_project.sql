@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: fwaProject
--- Generation Time: Nov 21, 2023 at 11:21 AM
+-- Generation Time: Jan 10, 2024 at 03:25 PM
 -- Server version: 11.1.2-MariaDB-1:11.1.2+maria~ubu2204
--- PHP Version: 8.2.11
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,15 +28,27 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `CUSTOMER` (
-  `C_CUSTKEY` uuid NOT NULL COMMENT 'SF*150,000 are populated',
+  `C_CUSTKEY` varchar(255) NOT NULL,
   `C_NAME` varchar(25) NOT NULL,
   `C_ADDRESS` varchar(40) NOT NULL,
-  `C_NATIONKEY` uuid NOT NULL COMMENT 'F_KEY to N_NATIONKEY',
+  `C_NATIONKEY` char(5) NOT NULL,
   `C_PHONE` text NOT NULL,
   `C_ACCTBAL` decimal(10,0) NOT NULL,
   `C_MKTSEGMENT` text NOT NULL,
   `C_COMMENT` varchar(117) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `CUSTOMER`
+--
+
+INSERT INTO `CUSTOMER` (`C_CUSTKEY`, `C_NAME`, `C_ADDRESS`, `C_NATIONKEY`, `C_PHONE`, `C_ACCTBAL`, `C_MKTSEGMENT`, `C_COMMENT`) VALUES
+('J.K Rowling', 'Rowling', 'Hogwarts', 'NY', '05612- 23187329', 20, 'Important People', ''),
+('Media Markt - Worms', 'Media Markt', 'W.E.P', 'DE', ' 0221 22243333', 500000000, 'Big Stores', ''),
+('Quavo', 'Quavo - Migos', 'REDACTED', 'NY', '', 1000000, 'Muscicians', ''),
+('Thomas Mueller', 'Thomas Mueller', 'in-Der-Strasse. 187', 'DE', '0987-3612578', 500, 'Customer', ''),
+('TJ', 'TJ_Beastboy', 'Unlimited Powerstreet', 'DE', '1337-53537', 100000, 'Musician', ''),
+('Toom', 'Toom Baumarkt', '10249, Hermann-Blankenstein-Str. 40-44', 'DE', '030 46776210', 0, 'Big Stores', '');
 
 -- --------------------------------------------------------
 
@@ -45,9 +57,9 @@ CREATE TABLE `CUSTOMER` (
 --
 
 CREATE TABLE `LINEITEM` (
-  `L_ORDERKEY` uuid NOT NULL,
-  `L_PARTKEY` uuid NOT NULL,
-  `L_SUPPKEY` uuid NOT NULL,
+  `L_ORDERKEY` int(11) NOT NULL COMMENT 'Foreign Key to O_ORDERKEY ',
+  `L_PARTKEY` varchar(255) NOT NULL COMMENT 'Foreign key to P_PARTKEY, first part of the compound Foreign Key to (PS_PARTKEY, PS_SUPPKEY) with L_SUPPKEY ',
+  `L_SUPPKEY` varchar(255) NOT NULL COMMENT 'Foreign key to S_SUPPKEY, second part of the compound Foreign Key to (PS_PARTKEY,PS_SUPPKEY) with L_PARTKEY ',
   `L_LINENUMBER` int(11) NOT NULL,
   `L_QUANTITY` decimal(10,0) NOT NULL,
   `L_EXTENDEDPRICE` decimal(10,0) NOT NULL,
@@ -63,6 +75,14 @@ CREATE TABLE `LINEITEM` (
   `L_COMMENT` varchar(44) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `LINEITEM`
+--
+
+INSERT INTO `LINEITEM` (`L_ORDERKEY`, `L_PARTKEY`, `L_SUPPKEY`, `L_LINENUMBER`, `L_QUANTITY`, `L_EXTENDEDPRICE`, `L_DISCOUNT`, `L_TAX`, `L_RETURNFLAG`, `L_LINESTATUS`, `L_SHIPDATE`, `L_COMMITDATE`, `L_RECEIPTDATE`, `L_SHIPINSTRUCT`, `L_SHIPMODE`, `L_COMMENT`) VALUES
+(1, 'Wheel01', 'BT', 1, 1, 25, 0, 4, 'NO', 'AVAILABLE', '2023-12-14', '2023-12-08', '2023-12-08', 'SHIP NORMAL', 'SPED', ''),
+(4, 'Wheel01', 'BT', 2, 5, 25, 0, 0, 'NO', 'AVAILABLE', '2023-12-28', '2023-12-25', '2023-12-22', 'CARE', 'FAST', '');
+
 -- --------------------------------------------------------
 
 --
@@ -70,11 +90,21 @@ CREATE TABLE `LINEITEM` (
 --
 
 CREATE TABLE `NATION` (
-  `N_NATIONKEY` uuid NOT NULL,
+  `N_NATIONKEY` char(5) NOT NULL COMMENT '25 nations are populated ',
   `N_NAME` text NOT NULL,
-  `N_REGIONKEY` uuid NOT NULL,
+  `N_REGIONKEY` char(2) NOT NULL,
   `N_COMMENT` varchar(152) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `NATION`
+--
+
+INSERT INTO `NATION` (`N_NATIONKEY`, `N_NAME`, `N_REGIONKEY`, `N_COMMENT`) VALUES
+('DE', 'Deutschland', 'EU', ''),
+('FR', 'Frankreich', 'EU', ''),
+('NY', 'New York', 'US', ''),
+('SP', 'Spanien', 'EU', '');
 
 -- --------------------------------------------------------
 
@@ -83,8 +113,8 @@ CREATE TABLE `NATION` (
 --
 
 CREATE TABLE `ORDERS` (
-  `O_ORDERKEY` uuid NOT NULL COMMENT 'SF*1,500,000 are sparsely populated',
-  `O_CUSTKEY` uuid NOT NULL COMMENT 'Foreign Key to C_CUSTKEY',
+  `O_ORDERKEY` int(11) NOT NULL COMMENT 'SF*1,500,000 are sparsely populated ',
+  `O_CUSTKEY` varchar(255) NOT NULL COMMENT 'Foreign Key to C_CUSTKEY',
   `O_ORDERSTATUS` text NOT NULL,
   `O_TOTALPRICE` decimal(10,0) NOT NULL,
   `O_ORDERDATE` date NOT NULL,
@@ -94,6 +124,17 @@ CREATE TABLE `ORDERS` (
   `O_COMMENT` varchar(79) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `ORDERS`
+--
+
+INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`, `O_ORDERDATE`, `O_ORDERPRIORITY`, `O_CLERK`, `O_SHIPPRIORITY`, `O_COMMENT`) VALUES
+(1, 'TJ', 'PROCCESSING', 50, '2023-12-11', 'HIGH', 'Daniel', 1, ''),
+(2, 'J.K Rowling', 'PENDING', 500, '2023-12-14', 'LOW', 'Jason', 0, 'Owes us money'),
+(3, 'Media Markt - Worms', 'DELIVERED', 502, '2023-12-11', 'HIGH', 'Daniela', 1, ''),
+(4, 'TJ', 'DELIVERED', 7000, '2023-12-12', 'HIGH', 'Jason', 1, ''),
+(5, 'Quavo', 'PROCESSING', 90, '2023-12-11', 'LOW', 'Daniel', 0, '');
+
 -- --------------------------------------------------------
 
 --
@@ -101,7 +142,7 @@ CREATE TABLE `ORDERS` (
 --
 
 CREATE TABLE `PART` (
-  `P_PARTKEY` uuid NOT NULL DEFAULT uuid() COMMENT 'Primary Key',
+  `P_PARTKEY` varchar(255) NOT NULL COMMENT 'SF*200,000 are populated ',
   `P_NAME` varchar(55) NOT NULL,
   `P_MFGR` text NOT NULL,
   `P_BRAND` text NOT NULL,
@@ -112,6 +153,13 @@ CREATE TABLE `PART` (
   `P_COMMENT` varchar(23) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `PART`
+--
+
+INSERT INTO `PART` (`P_PARTKEY`, `P_NAME`, `P_MFGR`, `P_BRAND`, `P_TYPE`, `P_SIZE`, `P_CONTAINER`, `P_RETAILPRICE`, `P_COMMENT`) VALUES
+('Wheel01', 'Michelin Reifen', 'Michelin', 'Michelin', 'Wheel', 10, 'Package', 250, '');
+
 -- --------------------------------------------------------
 
 --
@@ -119,12 +167,19 @@ CREATE TABLE `PART` (
 --
 
 CREATE TABLE `PARTSUPP` (
-  `PS_PARTKEY` uuid NOT NULL COMMENT 'F_KEY TO P_PARTKEY',
-  `PS_SUPPKEY` uuid NOT NULL COMMENT 'F_KEY TO S_SUPPKEY',
+  `PS_PARTKEY` varchar(255) NOT NULL COMMENT 'Foreign Key to P_PARTKEY',
+  `PS_SUPPKEY` varchar(255) NOT NULL COMMENT 'Foreign Key to S_SUPPKEY ',
   `PS_AVAILQTY` int(11) NOT NULL,
   `PS_SUPPLYCOST` decimal(10,0) NOT NULL,
   `PS_COMMENT` varchar(199) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `PARTSUPP`
+--
+
+INSERT INTO `PARTSUPP` (`PS_PARTKEY`, `PS_SUPPKEY`, `PS_AVAILQTY`, `PS_SUPPLYCOST`, `PS_COMMENT`) VALUES
+('Wheel01', 'BT', 5, 200, 'Noice Price');
 
 -- --------------------------------------------------------
 
@@ -133,10 +188,18 @@ CREATE TABLE `PARTSUPP` (
 --
 
 CREATE TABLE `REGION` (
-  `R_REGIONKEY` uuid NOT NULL,
+  `R_REGIONKEY` char(2) NOT NULL COMMENT '5 regions are populated',
   `R_NAME` text NOT NULL,
   `R_COMMENT` varchar(152) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `REGION`
+--
+
+INSERT INTO `REGION` (`R_REGIONKEY`, `R_NAME`, `R_COMMENT`) VALUES
+('EU', 'Europa', ''),
+('US', 'United States of America', '');
 
 -- --------------------------------------------------------
 
@@ -145,14 +208,21 @@ CREATE TABLE `REGION` (
 --
 
 CREATE TABLE `SUPPLIER` (
-  `S_SUPPKEY` uuid NOT NULL COMMENT 'SF*10,000 are Populated',
+  `S_SUPPKEY` varchar(255) NOT NULL COMMENT 'SF*10,000 are Populated',
   `S_NAME` text NOT NULL,
   `S_ADDRESS` varchar(40) NOT NULL,
-  `S_NATIONKEY` uuid NOT NULL COMMENT 'F_KEY to N_NATIONKEY',
+  `S_NATIONKEY` varchar(2) NOT NULL COMMENT 'Foreign Key to N_NATIONKEY',
   `S_PHONE` text NOT NULL,
   `S_ACCTBAL` decimal(10,0) NOT NULL,
   `S_COMMENT` varchar(101) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `SUPPLIER`
+--
+
+INSERT INTO `SUPPLIER` (`S_SUPPKEY`, `S_NAME`, `S_ADDRESS`, `S_NATIONKEY`, `S_PHONE`, `S_ACCTBAL`, `S_COMMENT`) VALUES
+('BT', 'Best Trans', 'Neubertstr. 55', 'DE', '01234-567890', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -162,37 +232,46 @@ CREATE TABLE `SUPPLIER` (
 -- Indexes for table `CUSTOMER`
 --
 ALTER TABLE `CUSTOMER`
-  ADD PRIMARY KEY (`C_CUSTKEY`);
+  ADD PRIMARY KEY (`C_CUSTKEY`),
+  ADD KEY `C_NATIONKEY` (`C_NATIONKEY`);
 
 --
 -- Indexes for table `LINEITEM`
 --
 ALTER TABLE `LINEITEM`
-  ADD PRIMARY KEY (`L_ORDERKEY`,`L_LINENUMBER`);
+  ADD PRIMARY KEY (`L_ORDERKEY`,`L_LINENUMBER`),
+  ADD KEY `L_PARTKEY` (`L_PARTKEY`,`L_SUPPKEY`),
+  ADD KEY `L_SUPPKEY` (`L_SUPPKEY`);
 
 --
 -- Indexes for table `NATION`
 --
 ALTER TABLE `NATION`
-  ADD PRIMARY KEY (`N_NATIONKEY`);
+  ADD PRIMARY KEY (`N_NATIONKEY`),
+  ADD KEY `N_NATIONKEY` (`N_NATIONKEY`),
+  ADD KEY `N_REGIONKEY` (`N_REGIONKEY`);
 
 --
 -- Indexes for table `ORDERS`
 --
 ALTER TABLE `ORDERS`
-  ADD PRIMARY KEY (`O_ORDERKEY`);
+  ADD PRIMARY KEY (`O_ORDERKEY`),
+  ADD KEY `O_CURSTKEY` (`O_CUSTKEY`),
+  ADD KEY `O_ORDERKEY` (`O_ORDERKEY`);
 
 --
 -- Indexes for table `PART`
 --
 ALTER TABLE `PART`
-  ADD PRIMARY KEY (`P_PARTKEY`);
+  ADD PRIMARY KEY (`P_PARTKEY`),
+  ADD KEY `P_PARTKEY` (`P_PARTKEY`);
 
 --
 -- Indexes for table `PARTSUPP`
 --
 ALTER TABLE `PARTSUPP`
-  ADD PRIMARY KEY (`PS_PARTKEY`,`PS_SUPPKEY`);
+  ADD PRIMARY KEY (`PS_PARTKEY`),
+  ADD KEY `PS_SUPPKEY` (`PS_SUPPKEY`);
 
 --
 -- Indexes for table `REGION`
@@ -204,7 +283,51 @@ ALTER TABLE `REGION`
 -- Indexes for table `SUPPLIER`
 --
 ALTER TABLE `SUPPLIER`
-  ADD PRIMARY KEY (`S_SUPPKEY`);
+  ADD PRIMARY KEY (`S_SUPPKEY`),
+  ADD KEY `S_NATIONKEY` (`S_NATIONKEY`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `CUSTOMER`
+--
+ALTER TABLE `CUSTOMER`
+  ADD CONSTRAINT `CUSTOMER_ibfk_1` FOREIGN KEY (`C_NATIONKEY`) REFERENCES `NATION` (`N_NATIONKEY`);
+
+--
+-- Constraints for table `LINEITEM`
+--
+ALTER TABLE `LINEITEM`
+  ADD CONSTRAINT `LINEITEM_ibfk_1` FOREIGN KEY (`L_ORDERKEY`) REFERENCES `ORDERS` (`O_ORDERKEY`),
+  ADD CONSTRAINT `LINEITEM_ibfk_2` FOREIGN KEY (`L_PARTKEY`) REFERENCES `PARTSUPP` (`PS_PARTKEY`),
+  ADD CONSTRAINT `LINEITEM_ibfk_3` FOREIGN KEY (`L_SUPPKEY`) REFERENCES `PARTSUPP` (`PS_SUPPKEY`);
+
+--
+-- Constraints for table `NATION`
+--
+ALTER TABLE `NATION`
+  ADD CONSTRAINT `NATION_ibfk_1` FOREIGN KEY (`N_REGIONKEY`) REFERENCES `REGION` (`R_REGIONKEY`);
+
+--
+-- Constraints for table `ORDERS`
+--
+ALTER TABLE `ORDERS`
+  ADD CONSTRAINT `CustKey` FOREIGN KEY (`O_CUSTKEY`) REFERENCES `CUSTOMER` (`C_CUSTKEY`);
+
+--
+-- Constraints for table `PARTSUPP`
+--
+ALTER TABLE `PARTSUPP`
+  ADD CONSTRAINT `PARTSUPP_ibfk_1` FOREIGN KEY (`PS_PARTKEY`) REFERENCES `PART` (`P_PARTKEY`),
+  ADD CONSTRAINT `SuppKeys` FOREIGN KEY (`PS_SUPPKEY`) REFERENCES `SUPPLIER` (`S_SUPPKEY`);
+
+--
+-- Constraints for table `SUPPLIER`
+--
+ALTER TABLE `SUPPLIER`
+  ADD CONSTRAINT `NatKey` FOREIGN KEY (`S_NATIONKEY`) REFERENCES `NATION` (`N_NATIONKEY`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -62,3 +62,7 @@ Hier stehen paar notizen zur DB
         - Spart viel zeit und aufwand
 - docker-compose.yml 
     - Organisiert was gebraucht wird um den Docker container zu starten und zu benutzen.
+- Zum automatisierten einfuegen der DB-Mockup daten
+> cd db/
+> docker exec -i db mariadb -u root -p'example' fwaProject < fwa_project.sql
+- Keep in mind, dass sind nur mockup daten, daher ist die sicherheit hier irrelevant.
