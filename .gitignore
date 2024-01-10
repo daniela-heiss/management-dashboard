@@ -6,6 +6,7 @@ db/ib_logfile0
 db/ibdata1
 db/mariadb_upgrade_info
 db/multi-master.mariadb_upgrade_info
+db/multi-master.info
 db/undo001
 db/undo002
 db/undo003
