@@ -15,11 +15,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from "@angular/forms";
 import { RevenueComponent } from './revenue/revenue.component';
-import { CustomerStatsComponent } from './customer-stats/customer-stats.component';
 import { ProfitsComponent } from './profits/profits.component';
 import { RevLastMonthComponent } from './rev-last-month/rev-last-month.component';
 import { RevNextYearComponent } from './rev-next-year/rev-next-year.component';
 import { RevLastYearComponent } from './rev-last-year/rev-last-year.component';
+import { HighestRevCustomerComponent } from './highest-rev-customer/highest-rev-customer.component';
+import { HighestOrderCustomerComponent } from './highest-order-customer/highest-order-customer.component';
  
 
 @NgModule({
@@ -31,11 +32,12 @@ import { RevLastYearComponent } from './rev-last-year/rev-last-year.component';
     CustomerComponent,
     ProfitChartComponent,
     RevenueComponent,
-    CustomerStatsComponent,
     ProfitsComponent,
     RevLastMonthComponent,
     RevNextYearComponent,
-    RevLastYearComponent
+    RevLastYearComponent,
+    HighestRevCustomerComponent,
+    HighestOrderCustomerComponent
   ],
   imports: [
     BrowserModule,

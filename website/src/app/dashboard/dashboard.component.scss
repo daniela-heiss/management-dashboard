@@ -3,3 +3,11 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1.6rem;
 }
+
+.customerContainer{
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: auto auto;
+}
