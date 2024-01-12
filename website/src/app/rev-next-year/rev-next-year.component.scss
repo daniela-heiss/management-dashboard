@@ -16,3 +16,12 @@ h3{
     margin-left: 0.6rem;
     font-size: 1rem;
 }
+
+.example-month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+  .example-month-picker .mat-calendar-arrow {
+    display: none;
+  }
+  
