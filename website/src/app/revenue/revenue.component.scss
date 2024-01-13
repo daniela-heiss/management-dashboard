@@ -23,7 +23,36 @@
     font-size: 1rem;
 }*/
 
-div{
+/*.revenueBlock > div {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}*/
+
+.revenueBlock > div:hover{
+    box-shadow: none;
+}
+
+.revenueBlock h3{
+    margin-left: 0.6rem;
+    font-size: 1rem;
+}
+
+/*.revResults{
+    display: grid;
+    grid-template-columns: repeat(6, 3fr);
+    gap: 1.6rem;
+}*/
+
+.revenueBlock{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20rem;
+
     background-color: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -33,11 +62,10 @@ div{
     transition: all 0.3s ease;
 }
 
-div:hover{
-    box-shadow: none;
+.revTotal h3{
+    margin-top: 3.7rem;
 }
 
-h3{
-    margin-left: 0.6rem;
-    font-size: 1rem;
+.revMonth h3{
+    margin-top: 3.7rem;
 }
