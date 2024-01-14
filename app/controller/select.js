@@ -75,11 +75,10 @@ async function getExpectedRev(request,response)
     response.json(MultipliedRev);
 }
 
-async function getAllSupplier(request, response)
+async function getAllOrders(request, response)
 {
-    const suppliers = await supplier.findAll();
-    console.log("All Supplier:", JSON.stringify(suppliers, null, 2));
-    response.json(suppliers);
+    const orders = await order.findAll();
+    response.json(orders);
 }
 
 export{
@@ -89,5 +88,5 @@ export{
     getTotalRev,
     getLastMonthRev,
     getExpectedRev,
-    getAllSupplier
+    getAllOrders
 }

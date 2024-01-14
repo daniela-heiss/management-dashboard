@@ -1,6 +1,5 @@
 import express, { request, response } from "express"
 import bodyParser from "body-parser";
-import {routerSupplier as supplierRouter} from './routes/supplierRoutes.js'
 import {routerCustomer as costumerRouter} from './routes/costumerRoutes.js'
 import {routerCustomer as highRevenueRouter} from "./routes/costumerRoutes.js"
 import { routerItems as itemRouter} from "./routes/itemRoutes.js";
@@ -13,7 +12,6 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.use(supplierRouter);
 app.use(costumerRouter);
 app.use(highRevenueRouter);
 app.use(routerOrders);
