@@ -1,4 +1,4 @@
-export class Customer {
+/*export class Customer {
     private customerKey: number;
     private name: string;
     private address: string;
@@ -19,4 +19,15 @@ export class Customer {
         this.comment = comment;
     }
     
-}
+}*/
+
+export interface Customer {
+    customerKey:number;
+    name:string;
+    address:string;
+    nationKey:number;
+    phone: Text;
+    acctBal: number;
+    mktSegment: Text;
+    comment: string;
+  }

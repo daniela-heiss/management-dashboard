@@ -1,5 +1,12 @@
 <main>
     <h1>Orders</h1>
+    <!--<div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only" id="loading">
+                Loading...
+            </span>
+        </div>
+    </div>"-->
 <div class="orderTable">
     
     <table>
@@ -17,9 +24,21 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+           <!-- <tr *ngFor="let e of lis;">
+                <td>{{e.orderKey}}</td>
+                <td>{{e.customerKey}}</td>
+                <td>{{e.orderStatus}}</td>
+                <td>{{e.totalPrice}}</td>
+                <td>{{e.orderDate}}</td>
+                <td>{{e.orderPriority}}</td>
+                <td>{{e.clerk}}</td>
+                <td>{{e.shipPriority}}</td>
+                <td>{{e.comment}}</td>
+            </tr>-->
+        </tbody>
     </table>
     <!--<a href="#">Show All</a>-->
 </div>
-<script src="orders.component.ts"></script>
+<!--<script src="orders.component.ts"></script>-->
 </main>

@@ -1,15 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss'
 })
-export class OrdersComponent {
+export class OrdersComponent /*implements OnInit*/ {
+  /*li: any;
+  lis = [];
+  constructor(private http: HttpClient){
 
+  }
+  ngOnInit(): void {
+    this.http.get('http://127.0.0.1:8080/orders').subscribe(Response =& gt; {
+      if (Response){
+        hideloader();
+      }
+      console.log(Response)
+      this.li = Response;
+      this.lis = this.li.list;
+    });
+    function hideloader(){
+      document.getElementById('loading')?.style.display = 'none';
+    }
+  }*/
 }
 
-const Orders = [
+
+/*const Orders = [
   {
       orderNumber: '',
       customerNumber: '',
@@ -32,7 +51,7 @@ const Orders = [
     shippingPriority: '',
     comments: ''
   },
-]
+]*/
 
 //Orders.forEach(order => {
   //const tr = document.createElement('tr');
