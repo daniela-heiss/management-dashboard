@@ -1,4 +1,4 @@
-export class Orders {
+/*export class Orders {
     private orderKey: number;
     private customerKey: number;
     private orderStatus: Text;
@@ -20,4 +20,16 @@ export class Orders {
         this.shipPriority = shipPriority;
         this.comment = comment;
     }
-}
+}*/
+
+export interface Orders {
+    orderKey: number;
+    customerKey: number;
+    orderStatus: Text;
+    totalPrice: number;
+    orderDate: Date;
+    orderPriority: Text;
+    clerk: Text;
+    shipPriority: number;
+    comment: string;
+  }

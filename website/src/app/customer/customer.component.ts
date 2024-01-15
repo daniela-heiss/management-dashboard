@@ -21,7 +21,7 @@ export class CustomerComponent implements OnInit{
     //this.li = Response;
     //this.lis = this.customerService.listCustomers();
     this.customerService = customerService;
-    this.customers = this.customerService.listCustomers();
+    this.customers = this.customerService.listCustomers();//.subscribe(customers: CustomerDTO[]) => this.customers = customers, (error: any) => this.errorMessage = <any>error);
     this.errorMessage='';
   }
   ngOnInit() {
