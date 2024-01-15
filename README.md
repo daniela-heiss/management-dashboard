@@ -1,5 +1,5 @@
 ---
-Date: 20.10.23 - Until End of Project
+Date: 20.10.23
 Title: Fullstack Webdev
 Name: Daniel, Daniela und Jason
 ---
@@ -8,61 +8,48 @@ Name: Daniel, Daniela und Jason
 # **Fullstack Webentwicklung**
 
 
-### Who's Expert?
-Daniela: Most Frontend. 
-Daniel: Backend(Alles ausser Datenbanken).
-Jason: Datenbanken & Virtualisierung, Rest.
+### Who did What?
+Daniela: Frontend und Serviceschicht
+Daniel: Backend
+Jason: Datenbanken & Virtualisierung 
 
 
 ### Anforderungen ans Projekt
 Frontend: Angular 
 Backend: Node.JS
-Datenbanke: MongoDB, MariaDB (Soll einfach austauschbar sein.)
+Datenbanke: MariaDB
 
-
-### Fragen? 
-Fragen wie Projekt vorgestellt wird.
-- Decision support system erstellen.
-    - Oeberflaeche soll ein Management System sein.
-    - Basis fuer die ANwendung ist Datenmodell (uebung 2)
-    - angular (fragen aus uebung 4)
-- node.js backend soll auf eigene Test Api zugreifen und so die Daten abgreifen welche obige anforderungen erfuellen. 
-Backend auch Docker? 
-- Backend kann auch rein (Der prof empfiehlt) 
-    
-    
-### Documentation
+# Documentation
 
 
 | Inhaltsverzeichnis | 
 | -------- | 
-| [Dependencies](#Dependencies)|
+| [Dependencies & Installation](#Dependencies)|
 | [Database](#Database)|
 
+## Dependencies & Installation
+Since we're using Linux for our Testing/Prod environment, this Installation will follow a Linux Debian setup.
+#### Docker installation
+- Debian & Ubuntu:
+    > sudo apt install docker  
+    > sudo apt install docker-compose
+- We require Access to clone a Gitlab repo. Please make sure you have setup an SSH-Key for the cloning. If you haven't, please follow this guide from Githubd (this is for Linux): 
+    > https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux
+#### Installing the Repo:
+- Git clone the repo.
+- enter fwa-project/
+    > cd fwa-project/
+- Use following Command to fire up the Docker Container:
+    > docker-compose -f docker-compose.yml up --detach
+#### Importing the Dummy-Data into the DB
+- Step into the DB folder
+    > cd db/
+- Once inside you can use the following command to import (If you've changed the Password in docker-compose, you may use a different set of user:password)
+    > docker exec -i db mariadb -u root -p"example" fwaProject < fwa_project.sql
 
-#### Installation
-
-
-> Debian: sudo apt install docker || sudo apt install docker-compose
-
-Andere distro's funktionieren auch so, nur halt mit eigenem Package manager.
-Dann das repo clonen und dann:
-
-> docker-compose -f docker-compose.yml up --detach
-
-#### Database
-Hier stehen paar notizen zur DB
-- Wir verwenden MariaDB
-    - Warum?
-        - Weil Jason (Der mann der DB) mit MariaDB schonma gearbeitet hat und so weniger lernzeit besteht.
-- Zum Konfigurieren der DB verwenden wir phpmyadmin
-    - Warum?
-        - Siehe oben
-    - Warum ueberhaupt extern Konfigurieren?
-        - Spart viel zeit und aufwand
-- docker-compose.yml 
-    - Organisiert was gebraucht wird um den Docker container zu starten und zu benutzen.
-- Zum automatisierten einfuegen der DB-Mockup daten
-> cd db/
-> docker exec -i db mariadb -u root -p'example' fwaProject < fwa_project.sql
-- Keep in mind, dass sind nur mockup daten, daher ist die sicherheit hier irrelevant.
+## Database
+#### Managing the DB
+- You can manage the DB by either using the mariadb-cli tool which is in included in the Docker container
+- You can use the Phpmyadmin interface which you can find under: 
+    > Find it under: localhost:8085
+    > Server: fwaProject | User: root | Pass: example
