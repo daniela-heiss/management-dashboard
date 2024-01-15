@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './highest-rev-customer.component.scss'
 })
 export class HighestRevCustomerComponent {
-
+  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
+    console.log(dateRangeStart.value);
+    console.log(dateRangeEnd.value);
+  }
 }

@@ -52,6 +52,10 @@ export class RevNextYearComponent {
     dp.close();
     console.log(this.date.value, ctrlValue);
   }
+  /*dateRangeChange(selectedDate: HTMLInputElement){
+    console.log(selectedDate.value);
+    //HTML ADD: #selectedDate (dateChange)="dateRangeChange(selectedDate)"
+  }*/
 }
 
 /*export const MY_FORMATS = {
