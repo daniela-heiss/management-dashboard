@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProfitsComponent {
   dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
-    console.log(dateRangeStart.value);
-    console.log(dateRangeEnd.value);
+    if (dateRangeStart.value != "" && dateRangeEnd.value != ""){
+      console.log(dateRangeStart.value);
+      console.log(dateRangeEnd.value);
+    }
   }
 }
