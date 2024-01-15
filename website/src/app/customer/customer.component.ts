@@ -25,6 +25,7 @@ export class CustomerComponent implements OnInit{
     this.errorMessage='';
   }
   ngOnInit() {
+    this.customers = this.customerService.listCustomers();
     /*this.http.get('http://127.0.0.1:8080/orders').subscribe(Response =& gt; {
       if (Response){
         hideloader();

@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                 <!--<tr *ngFor="let e of customers;">
+                 <tr *ngFor="let e of customers | async">
                 <td>{{e.customerKey}}</td>
                 <td>{{e.name}}</td>
                 <td>{{e.address}}</td>
@@ -25,7 +25,7 @@
                 <td>{{e.acctBal}}</td>
                 <td>{{e.mktSegment}}</td>
                 <td>{{e.comment}}</td>
-            </tr>-->
+            </tr>
             </tbody>
         </table>
         <!--<a href="#">Show All</a>-->

@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-           <!-- <tr *ngFor="let e of lis;">
+            <tr *ngFor="let e of orders | async">
                 <td>{{e.orderKey}}</td>
                 <td>{{e.customerKey}}</td>
                 <td>{{e.orderStatus}}</td>
@@ -35,7 +35,7 @@
                 <td>{{e.clerk}}</td>
                 <td>{{e.shipPriority}}</td>
                 <td>{{e.comment}}</td>
-            </tr>-->
+            </tr>
         </tbody>
     </table>
     <!--<a href="#">Show All</a>-->

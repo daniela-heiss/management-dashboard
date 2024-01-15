@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './revenue.component.scss'
 })
 export class RevenueComponent {
-
+  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
+    console.log(dateRangeStart.value);
+    console.log(dateRangeEnd.value);
+  }
 }
