@@ -1,25 +1,25 @@
 import{Orders} from "./orders";
 
 export class OrdersDTO implements Orders {
-    public orderKey: number;
-    public customerKey: number;
-    public orderStatus: Text;
-    public totalPrice: number;
-    public orderDate: Date;
-    public orderPriority: Text;
-    public clerk: Text;
-    public shipPriority: number;
-    public comment: string;
+    public O_ORDERKEY: number;
+    public O_CUSTKEY: number;
+    public O_ORDERSTATUS: Text;
+    public O_TOTALPRICE: number;
+    public O_ORDERDATE: Date;
+    public O_ORDERPRIORITY: Text;
+    public O_CLERK: Text;
+    public O_SHIPPRIORITY: number;
+    public O_COMMENT: string;
 
     constructor(orderKey: number, customerKey: number, orderStatus: Text, totalPrice: number, orderDate: Date, orderPriority: Text, clerk: Text, shipPriority: number, comment: string){
-        this.orderKey = orderKey;
-        this.customerKey = customerKey;
-        this.orderStatus = orderStatus;
-        this.totalPrice = totalPrice;
-        this.orderDate = orderDate;
-        this.orderPriority = orderPriority;
-        this.clerk = clerk;
-        this.shipPriority = shipPriority;
-        this.comment = comment;
+        this.O_ORDERKEY = orderKey;
+        this.O_CUSTKEY = customerKey;
+        this.O_ORDERSTATUS = orderStatus;
+        this.O_TOTALPRICE = totalPrice;
+        this.O_ORDERDATE = orderDate;
+        this.O_ORDERPRIORITY = orderPriority;
+        this.O_CLERK = clerk;
+        this.O_SHIPPRIORITY = shipPriority;
+        this.O_COMMENT = comment;
     }
 }

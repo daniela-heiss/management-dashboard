@@ -26,15 +26,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let e of orders | async">
-                <td>{{e.orderKey}}</td>
-                <td>{{e.customerKey}}</td>
-                <td>{{e.orderStatus}}</td>
-                <td>{{e.totalPrice}}</td>
-                <td>{{e.orderDate}}</td>
-                <td>{{e.orderPriority}}</td>
-                <td>{{e.clerk}}</td>
-                <td>{{e.shipPriority}}</td>
-                <td>{{e.comment}}</td>
+                <td>{{e.O_ORDERKEY}}</td>
+                <td>{{e.O_CUSTKEY}}</td>
+                <td>{{e.O_ORDERSTATUS}}</td>
+                <td>{{e.O_TOTALPRICE}}</td>
+                <td>{{e.O_ORDERDATE}}</td>
+                <td>{{e.O_ORDERPRIORITY}}</td>
+                <td>{{e.O_CLERK}}</td>
+                <td>{{e.O_SHIPPRIORITY}}</td>
+                <td>{{e.O_COMMENT}}</td>
             </tr>
         </tbody>
     </table>

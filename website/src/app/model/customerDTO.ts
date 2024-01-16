@@ -1,24 +1,24 @@
 import{Customer} from "./customer";
 
 export class CustomerDTO implements Customer {
-    public customerKey: number;
-    public name: string;
-    public address: string;
-    public nationKey: number;
-    public phone: Text;
-    public acctBal: number;
-    public mktSegment: Text;
-    public comment: string;
+    public C_CUSTKEY: string;
+    public C_NAME: string;
+    public C_ADDRESS: string;
+    public C_NATIONKEY: string;
+    public C_PHONE: string;
+    public C_ACCTBAL: number;
+    public C_MKTSEGMENT: string;
+    public C_COMMENT: string;
 
-    constructor (customerKey: number, name: string, address: string, nationKey: number, phone: Text, acctBal: number, mktSegment: Text, comment: string){
-        this.customerKey = customerKey;
-        this.name = name;
-        this.address = address;
-        this.nationKey = nationKey;
-        this.phone = phone;
-        this.acctBal = acctBal;
-        this.mktSegment = mktSegment;
-        this.comment = comment;
+    constructor (customerKey: string, name: string, address: string, nationKey: string, phone: string, acctBal: number, mktSegment: string, comment: string){
+        this.C_CUSTKEY = customerKey;
+        this.C_NAME = name;
+        this.C_ADDRESS = address;
+        this.C_NATIONKEY = nationKey;
+        this.C_PHONE = phone;
+        this.C_ACCTBAL = acctBal;
+        this.C_MKTSEGMENT = mktSegment;
+        this.C_COMMENT = comment;
     }
     
 }

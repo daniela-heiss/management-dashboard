@@ -16,15 +16,15 @@
                 </tr>
             </thead>
             <tbody>
-                 <tr *ngFor="let e of customers | async">
-                <td>{{e.customerKey}}</td>
-                <td>{{e.name}}</td>
-                <td>{{e.address}}</td>
-                <td>{{e.nationKey}}</td>
-                <td>{{e.phone}}</td>
-                <td>{{e.acctBal}}</td>
-                <td>{{e.mktSegment}}</td>
-                <td>{{e.comment}}</td>
+                 <tr *ngFor="let customer of customers | async">
+                <td>{{customer.C_CUSTKEY}}</td>
+                <td>{{customer.C_NAME}}</td>
+                <td>{{customer.C_ADDRESS}}</td>
+                <td>{{customer.C_NATIONKEY}}</td>
+                <td>{{customer.C_PHONE}}</td>
+                <td>{{customer.C_ACCTBAL}}</td>
+                <td>{{customer.C_MKTSEGMENT}}</td>
+                <td>{{customer.C_COMMENT}}</td>
             </tr>
             </tbody>
         </table>

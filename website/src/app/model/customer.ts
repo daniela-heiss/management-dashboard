@@ -1,5 +1,5 @@
 /*export class Customer {
-    private customerKey: number;
+    private C_CUSTKEY: number;
     private name: string;
     private address: string;
     private nationKey: number;
@@ -22,12 +22,12 @@
 }*/
 
 export interface Customer {
-    customerKey:number;
-    name:string;
-    address:string;
-    nationKey:number;
-    phone: Text;
-    acctBal: number;
-    mktSegment: Text;
-    comment: string;
+    C_CUSTKEY:string;
+    C_NAME:string;
+    C_ADDRESS:string;
+    C_NATIONKEY:string;
+    C_PHONE: string;
+    C_ACCTBAL: number;
+    C_MKTSEGMENT: string;
+    C_COMMENT: string;
   }
