@@ -12,9 +12,14 @@ RUN npm install -g nodemon
 RUN npm install -g directory-import
 
 RUN rm -f .npmrc
-CMD docker exec -i db mariadb -u root -p'example' fwaProject < db/fwa_project.sql 
 EXPOSE 8000
 
 EXPOSE 3000
 EXPOSE 9229
 CMD ["sh", "-c","--","echo 'started';while true; do sleep 1000; done"]
+
+WORKDIR /website
+
+COPY . ./
+
+RUN npm install
