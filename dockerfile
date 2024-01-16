@@ -17,9 +17,3 @@ EXPOSE 8000
 EXPOSE 3000
 EXPOSE 9229
 CMD ["sh", "-c","--","echo 'started';while true; do sleep 1000; done"]
-
-WORKDIR /website
-
-COPY . ./
-
-RUN npm install
