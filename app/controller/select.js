@@ -1,10 +1,8 @@
 import {costumer} from '../models/customer.js'
-import {lineItem} from '../models/lineitem.js'
 import {order} from '../models/orders.js'
-import {supplier} from '../models/supplier.js'
 import { sequelize } from '../models/dbconnection.js'
-import { Sequelize } from 'sequelize'
-
+import { DATE, Op } from 'sequelize'
+import {app} from "../apps.js"
 // Find all costumer
 async function getAllCustomers(request,response)
 {
@@ -37,28 +35,24 @@ async function cusWithMostOrders(request,response)
 }   
 
 // Function to find the highest Revenue
-async function getTotalRev(request,response,startDate, endDate){
-    const results  = await lineItem.findAll(
-    {
-        attributes: [
-            [Sequelize.fn('SUM', Sequelize.literal('((L_EXTENDEDPRICE * (1 - L_DISCOUNT))* L_QUANTITY)')),'totalRev']
-        ],
-        include: [
-            {
-                model: order,
-                where:{
-                    O_ORDERDATE:{
-                        [Sequelize.Op.between]:[startDate,endDate]
-                    }
+async function getTotalRev(request,response){
+    var start = request.query.startDate;
+    var end = request.query.endDate;
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+    var results = await order.sum('O_TOTALPRICE',{
+        where:{
+            "O_ORDERDATE":{
+                [Op.and]:{
+                    [Op.gte]: startDate,
+                    [Op.lte]: endDate
                 }
             }
-        ]
-        
-    });
-
-    const totalRevenues = results.map(result => result.get('totalRev'));
-    response.json(totalRevenues);
+        }
+    })
+    response.json(results);
 }
+
 
 //Calculate last month Revenue
 async function getLastMonthRev(request,response){

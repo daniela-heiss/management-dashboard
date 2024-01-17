@@ -12,6 +12,6 @@ export class OrdersService {
 
   public listOrders(): Observable<OrdersDTO[]> {
     console.log('execute listOrders');
-    return this.httpClient.get<OrdersDTO[]>('http://127.0.0.1:8080/orders')
+    return this.httpClient.get<OrdersDTO[]>('http://localhost:8080/orders')
   }
 }

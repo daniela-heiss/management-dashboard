@@ -1,7 +1,7 @@
+import {request,response} from "express";
 import Router from 'express'
 import {getTotalRev} from '../controller/select.js'
 
-
-const routerItems = Router();
-routerItems.get('/revenue',getTotalRev);
-export{routerItems}
+const router = Router()
+router.get("/revenue",getTotalRev);
+export{router};
