@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CustomerDTO } from "../model/customerDTO";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,6 +15,12 @@ export class CustomerService {
   public listCustomers(): Observable<CustomerDTO[]> {
     console.log('execute listCustomers');
     return this.httpClient.get<CustomerDTO[]>(this.baseURL);
+  }
+
+  public getHighestRevCustomer(startDate: string, endDate: string): Observable<CustomerDTO[]> {
+    console.log('execute get highest rev customer');
+    const options = {params: new HttpParams().set('startDate', startDate).set('endDate', endDate)};
+    return this.httpClient.get<CustomerDTO[]>('/customer_highest', options);
   }
 
 }
