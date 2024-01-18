@@ -14,34 +14,36 @@
     
     <div class="customer-list">
         <div class="customer">
-            <h1>{{(customers | async)?.[0]?.CountedOrders}} Orders</h1>
-            <h2>ID: {{(customers | async)?.[0]?.O_CUSTKEY}}</h2>
-            <!--<p>{{(customers | async)?.[0]?.}</p>
-            <p>{{(customers | async)?.[0]?.C_CUSTKEY}}</p>-->
+            <h1>{{(customers | async)?.[0]?.C_COUNTEDORDERS}} Orders</h1>
+            <h2>{{(customers | async)?.[0]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[0]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[0]?.C_NATIONKEY}}</p>
         </div>
         <div class="customer">
-            <h1>{{(customers | async)?.[1]?.CountedOrders}} Orders</h1>
-            <h2>ID: {{(customers | async)?.[1]?.O_CUSTKEY}}</h2>
-            <!--<p>1231$</p>
-            <p>123452</p>-->
+            <h1>{{(customers | async)?.[1]?.C_COUNTEDORDERS}} Orders</h1>
+            <h2>{{(customers | async)?.[1]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[1]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[1]?.C_NATIONKEY}}</p>
+        </div>
+        
+        <div class="customer">
+            <h1>{{(customers | async)?.[2]?.C_COUNTEDORDERS}} Orders</h1>
+            <h2>{{(customers | async)?.[2]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[2]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[2]?.C_NATIONKEY}}</p>
+        </div>
+        
+        <div class="customer">
+            <h1>{{(customers | async)?.[3]?.C_COUNTEDORDERS}} Orders</h1>
+            <h2>{{(customers | async)?.[3]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[3]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[3]?.C_NATIONKEY}}</p>
         </div>
         <div class="customer">
-            <h1>{{(customers | async)?.[2]?.CountedOrders}} Orders</h1>
-            <h2>ID: {{(customers | async)?.[2]?.O_CUSTKEY}}</h2>
-            <!--<p>1231$</p>
-            <p>114752</p>-->
+            <h1>{{(customers | async)?.[4]?.C_COUNTEDORDERS}} Orders</h1>
+            <h2>{{(customers | async)?.[4]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[4]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[4]?.C_NATIONKEY}}</p>
         </div>
-        <div class="customer">
-            <h1>{{(customers | async)?.[3]?.CountedOrders}} Orders</h1>
-            <h2>ID: {{(customers | async)?.[3]?.O_CUSTKEY}}</h2>
-           <!-- <p>1231$</p>
-            <p>114257</p>-->
-        </div>
-        <div class="customer">
-            <h1>{{(customers | async)?.[4]?.CountedOrders}} Orders</h1>
-            <h2>ID: {{(customers | async)?.[4]?.O_CUSTKEY}}</h2>
-           <!-- <p>1231$</p>
-            <p>114122</p>-->
-        </div>
-    </div>
+    </div>  
 </div>
