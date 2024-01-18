@@ -15,4 +15,10 @@ export class RevenueService {
     const options = {params: new HttpParams().set('startDate', startDate).set('endDate', endDate)};
     return this.httpClient.get<Revenue>('http://localhost:8080/revenue', options);
   }
+
+  public getExpectedRevenue(year: string): Observable<Revenue> {
+    console.log('execute get rev');
+    const options = {params: new HttpParams().set('startDate', year)};
+    return this.httpClient.get<Revenue>('http://localhost:8080/revenue', options);
+  }
 }
