@@ -1,4 +1,5 @@
 import{ dataTypes,sequelize} from './dbconnection.js';
+import {order} from './orders.js'
 
 const costumer = sequelize.define("CUSTOMER",
 {
@@ -47,22 +48,12 @@ const costumer = sequelize.define("CUSTOMER",
 },
 {
     freezeTableName: true,
-    timestamps: false
+    timestamps: false,
 })
 
+costumer.hasMany(order, {foreignKey: 'O_CUSTKEY'});
 
-function getAll()
-{
-    return costumer.findAll();
-}
-
-function get(UUID)
-{
-    return costumer.findByPk(UUID);
-}
 export
 {
-    getAll,
-    get,
     costumer
 }

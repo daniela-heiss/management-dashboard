@@ -15,23 +15,24 @@ async function getHighRevenue(request,response)
     var end = request.query.endDate;
     const startDate = new Date(start);
     const endDate = new Date(end);
-    const costumersRev = await order.findAll( 
+    const costumersRev = await costumer.findAll( 
     {
-        attributes: ['O_CUSTKEY', [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'test']],
+        include:[order],
+        attributes: ['C_CUSTKEY','C_NAME', 'C_ADDRESS' , 'C_NATIONKEY' ,'C_PHONE','C_ACCTBAL', 'C_MKTSEGMENT', 'C_COMMENT', [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'C_REVENUE']],
         group: ['O_CUSTKEY'],
-        order: [[sequelize.literal('test'),'DESC']],
-        limit: 3,
+        order: [[sequelize.literal('C_REVENUE'),'DESC']],
         where:{
-            "O_ORDERDATE":{
+            '$O_ORDERDATE$':{
                 [Op.and]:{
                     [Op.gte]: startDate,
                     [Op.lte]: endDate
                 }
             }
-        }
+        },
+        subQuery: false,
+        limit: 3
+
     })
-        
-    });
    response.json(costumersRev);
 }
 
