@@ -2,7 +2,6 @@ import {costumer} from '../models/customer.js'
 import {order} from '../models/orders.js'
 import { sequelize } from '../models/dbconnection.js'
 import { DATE, Op } from 'sequelize'
-import {app} from "../apps.js"
 // Find all costumer
 async function getAllCustomers(request,response)
 {
@@ -11,11 +10,27 @@ async function getAllCustomers(request,response)
 }
 // Function to get the top 3 Highest Revenue
 async function getHighRevenue(request,response)
-{
-    const costumersRev = await costumer.findAll( 
+{   
+    var start = request.query.startDate;
+    var end = request.query.endDate;
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const costumersRev = await order.findAll( 
     {
+        attributes: ['O_CUSTKEY', [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'test']],
+        group: ['O_CUSTKEY'],
+        order: [[sequelize.literal('test'),'DESC']],
         limit: 3,
-        order: sequelize.literal('(C_ACCTBAL) DESC'),
+        where:{
+            "O_ORDERDATE":{
+                [Op.and]:{
+                    [Op.gte]: startDate,
+                    [Op.lte]: endDate
+                }
+            }
+        }
+    })
+        
     });
    response.json(costumersRev);
 }
@@ -23,14 +38,26 @@ async function getHighRevenue(request,response)
 // Function to get customers with the most orders
 async function cusWithMostOrders(request,response)
 {
+    var start = request.query.startDate;
+    var end = request.query.endDate;
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+
     const costumerOrder = await order.findAll(
     {  
         attributes: ['O_CUSTKEY', [sequelize.fn('COUNT', 'O_CUSTKEY'), 'CountedOrders']],
         group: ['O_CUSTKEY'],
         order: [[sequelize.literal('CountedOrders'),'DESC']],
-        limit: 5
-    });
-
+        limit: 5,
+        where:{
+            "O_ORDERDATE":{
+                [Op.and]:{
+                    [Op.gte]: startDate,
+                    [Op.lte]: endDate
+                }
+            }
+        }
+    })
     response.json(costumerOrder);
 }   
 
@@ -50,6 +77,11 @@ async function getTotalRev(request,response){
             }
         }
     })
+
+    if(results == null)
+    {
+       results = 0;
+    }
     response.json(results);
 }
 
