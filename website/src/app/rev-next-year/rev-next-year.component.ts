@@ -56,7 +56,7 @@ export class RevNextYearComponent implements OnInit{
   constructor(revenueService: RevenueService){
     this.revenueService = revenueService;
     this.expectedRev = this.revenueService.getExpectedRevenue('2024');
-    this.dateValue = new Date('2024.01.01');
+    this.dateValue = new Date('2023.01.01');
     //this.customerOne = this.customers.pipe(first())
   }
 
@@ -79,7 +79,7 @@ export class RevNextYearComponent implements OnInit{
 
       const newDate = new Date(date.value);
 
-      this.expectedRev = this.revenueService.getExpectedRev(this.dateToString(newDate));
+      this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToString(newDate));
     }
   }
 
