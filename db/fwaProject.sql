@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: fwaProject
--- Generation Time: Jan 18, 2024 at 11:25 AM
+-- Generation Time: Jan 18, 2024 at 03:04 PM
 -- Server version: 11.2.2-MariaDB-1:11.2.2+maria~ubu2204
 -- PHP Version: 8.2.14
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `fwaProject`
 --
+CREATE DATABASE IF NOT EXISTS `fwaProject` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `fwaProject`;
 
 -- --------------------------------------------------------
 
@@ -301,7 +303,8 @@ ALTER TABLE `SUPPLIER`
 -- Constraints for table `CUSTOMER`
 --
 ALTER TABLE `CUSTOMER`
-  ADD CONSTRAINT `CUSTOMER_ibfk_1` FOREIGN KEY (`C_NATIONKEY`) REFERENCES `NATION` (`N_NATIONKEY`);
+  ADD CONSTRAINT `CUSTOMER_ibfk_1` FOREIGN KEY (`C_NATIONKEY`) REFERENCES `NATION` (`N_NATIONKEY`),
+  ADD CONSTRAINT `OrderCustKey` FOREIGN KEY (`C_CUSTKEY`) REFERENCES `ORDERS` (`O_CUSTKEY`);
 
 --
 -- Constraints for table `LINEITEM`
