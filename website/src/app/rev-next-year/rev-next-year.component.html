@@ -35,7 +35,7 @@
     </mat-form-field>-->
 
     <mat-form-field appearance="outline">
-      <input matInput [matDatepicker]="dp" placeholder="Month and Year" [value]="dateValue" >
+      <input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date">
       <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
       <mat-datepicker #dp
                       startView="multi-year"
@@ -49,4 +49,4 @@
      <h1>${{expectedRev | async}}</h1>
 </div>
 
-<!-- (dateChange)="onYearChange()"-->
+<!--(dateChange)="YearChange(date)" -->
