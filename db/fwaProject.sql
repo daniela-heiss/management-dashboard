@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: fwaProject
--- Generation Time: Jan 10, 2024 at 03:25 PM
--- Server version: 11.1.2-MariaDB-1:11.1.2+maria~ubu2204
--- PHP Version: 8.2.12
+-- Generation Time: Jan 18, 2024 at 11:25 AM
+-- Server version: 11.2.2-MariaDB-1:11.2.2+maria~ubu2204
+-- PHP Version: 8.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -133,7 +133,14 @@ INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`
 (2, 'J.K Rowling', 'PENDING', 500, '2023-12-14', 'LOW', 'Jason', 0, 'Owes us money'),
 (3, 'Media Markt - Worms', 'DELIVERED', 502, '2023-12-11', 'HIGH', 'Daniela', 1, ''),
 (4, 'TJ', 'DELIVERED', 7000, '2023-12-12', 'HIGH', 'Jason', 1, ''),
-(5, 'Quavo', 'PROCESSING', 90, '2023-12-11', 'LOW', 'Daniel', 0, '');
+(5, 'Quavo', 'PROCESSING', 90, '2023-12-11', 'LOW', 'Daniel', 0, ''),
+(6, 'Quavo', 'DELIVERED', 400, '2023-11-10', 'High', 'Daniel', 1, ''),
+(7, 'Thomas Mueller', 'Pending', 250, '2023-11-13', 'HIGH', 'Daniela', 1, ''),
+(8, 'TJ', 'DELIVERED', 900, '2022-12-09', 'Low', 'Jason', 1, ''),
+(9, 'Toom', 'DELIVERED', 5000, '2023-11-14', 'HIGH', 'Daniel', 1, ''),
+(10, 'Thomas Mueller', 'DELIVERED', 80, '2023-11-13', 'Low', 'Jason', 1, ''),
+(11, 'Media Markt - Worms', 'DELIVERED', 5000, '2022-08-24', 'HIGH', 'Jason', 1, ''),
+(12, 'J.K Rowling', 'PENDING', 800, '2022-06-15', 'Low', 'Daniel', 0, 'Doesn\'t need to be fast');
 
 -- --------------------------------------------------------
 
