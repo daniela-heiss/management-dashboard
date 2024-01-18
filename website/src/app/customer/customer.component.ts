@@ -31,7 +31,7 @@ export class CustomerComponent implements OnInit{
 
   ngOnInit() {
     //this.customers = this.customerService.listCustomers();
-    console.dir(this.customers);
+    /*console.dir(this.customers);
     this.customerService.listCustomers()
     .subscribe(
       res => console.log(res)
