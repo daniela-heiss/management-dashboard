@@ -100,8 +100,23 @@ async function getLastMonthRev(request,response){
 //Find all orders
 async function getExpectedRev(request,response)
 {
-    const ExpectedRev = await order.sum('O_TOTALPRICE');
-    const MultipliedRev = ExpectedRev * 1.5;
+    var Jahr = 2023;
+    var jahrIn = Number(request.query.year);
+    var startDate = '2023-01-01';
+    var endDate = '2023-12-31';
+    const ExpectedRev = await order.sum('O_TOTALPRICE',{
+        where:{
+            'O_ORDERDATE':{
+                [Op.and]:{
+                    [Op.gte]: ,
+                    [Op.lte]: endDate
+                }
+            }
+        }
+
+    });
+    var Multiplikaotr = (jahrIn - Jahr) * 0.5
+    const MultipliedRev = ExpectedRev * Multiplikaotr;
     response.json(MultipliedRev);
 }
 
