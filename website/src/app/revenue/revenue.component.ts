@@ -13,7 +13,7 @@ export class RevenueComponent implements OnInit {
 
   private revenueService: RevenueService;
   public totalRev: Observable<Revenue>;
-  //public lastMonthRev: Observable<Revenue>;
+  public lastMonthRev: Observable<Revenue>;
   public lastYearRev: Observable<Revenue>;
 
   startDate: Date;
@@ -26,7 +26,7 @@ export class RevenueComponent implements OnInit {
 
     this.revenueService = revenueService;
     this.totalRev = this.revenueService.getRevenue('2023-12-11', '2023-12-13');
-    //this.lastMonthRev = this.revenueService.getRevenue();
+    this.lastMonthRev = this.revenueService.getRevenue('2023-11-01', '2023-11-30');
     this.lastYearRev = this.revenueService.getRevenue('2022-01-31', '2022-12-31');
 
   }
@@ -43,19 +43,21 @@ export class RevenueComponent implements OnInit {
   dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
     if (dateRangeStart.value != "" && dateRangeEnd.value != ""){
       let lastYearDates: string[] = this.subtractYear(dateRangeStart.value, dateRangeEnd.value);
-      /*const lastMonthDate = new Date();
-      lastYearDate.setMonth(lastYearDate.getMonth() -1);*/
+      let lastMonthDates: string[] = this.subtractMonth(dateRangeStart.value, dateRangeEnd.value);
+      //lastYearDate.setMonth(lastYearDate.getMonth() -1);
       const dateStart = new Date(dateRangeStart.value);
       const dateEnd = new Date(dateRangeEnd.value);
-      console.log(dateStart, dateEnd);
-      console.log(this.dateToString(dateStart), this.dateToString(dateEnd));
+      //console.log(dateStart, dateEnd);
+      //console.log(this.dateToString(dateStart), this.dateToString(dateEnd));
 
       //console.log(dateStart, dateEnd);
       
       this.totalRev = this.revenueService.getRevenue(this.dateToString(dateStart), this.dateToString(dateEnd));
       //this.totalRev = this.revenueService.getRevenue(dateRangeStart.value, dateRangeEnd.value);
       //this.lastMonthRev = this.revenueService.getRevenue();
+      //console.log(lastYearDates[0], lastYearDates[1]);
       this.lastYearRev = this.revenueService.getRevenue(lastYearDates[0], lastYearDates[1]);
+      this.lastMonthRev = this.revenueService.getRevenue(lastMonthDates[0], lastMonthDates[1]);
     }
   }
 
@@ -73,8 +75,8 @@ export class RevenueComponent implements OnInit {
     lastYearStart.setMonth(0);
 
     lastYearEnd.setFullYear(dateEnd.getFullYear() -1);
-    lastYearStart.setDate(31);
-    lastYearStart.setMonth(11);
+    lastYearEnd.setDate(31);
+    lastYearEnd.setMonth(11);
 
     dates[0] = this.dateToString(lastYearStart);
     dates[1] = this.dateToString(lastYearEnd);
@@ -88,18 +90,28 @@ export class RevenueComponent implements OnInit {
     const dateStart = new Date(dateRangeStart);
     const dateEnd = new Date(dateRangeEnd);
 
-    const lastMonthStart = new Date();
-    const lastMonthEnd = new Date();
+    //const lastMonthStart = new Date();
+    //const lastMonthEnd = new Date();
     const lastDayOfMonth = new Date();
+    //console.log(dateStart.getMonth());
+    dateStart.setMonth(dateStart.getMonth() -1);
+    //console.log(dateStart.getMonth());
+    dateStart.setDate(1);
+    //console.log(dateStart.getDate())
 
-    lastMonthStart.setMonth(dateStart.getMonth() -1);
-    lastMonthStart.setDate(1);
+    //if (dateEnd.getMonth() > lastMonthStart.getMonth()){
+      //console.log(dateStart.getMonth());
+    dateEnd.setMonth(dateStart.getMonth());
 
-    if (dateEnd.getMonth() > lastMonthStart.getMonth()){
-      lastMonthEnd.setMonth(dateEnd.getMonth() -1);
-      lastDayOfMonth.setMonth(lastMonthEnd.getMonth() + 1);
-      lastDayOfMonth.setDate(0);
-      lastMonthEnd.setDate(lastDayOfMonth.getDate());
+    lastDayOfMonth.setMonth(dateEnd.getMonth() + 1);
+    lastDayOfMonth.setDate(0);
+
+    dateEnd.setDate(lastDayOfMonth.getDate());
+   
+    dates[0] = this.dateToString(dateStart);
+    dates[1] = this.dateToString(dateEnd);
+
+    return dates;
     /*  switch (lastMonthEnd.getMonth()){
         case 0:
           lastMonthEnd.setDate(31);
@@ -138,7 +150,7 @@ export class RevenueComponent implements OnInit {
           lastMonthEnd.setDate(31);
           break;
       }*/
-    }
+    //}
 
     /*const lastMonthDate = new Date();
       lastYearDate.setMonth(lastYearDate.getMonth() -1);*/
@@ -158,11 +170,12 @@ export class RevenueComponent implements OnInit {
   }
 
   dateToString(date: Date){
-    date.setUTCHours(date.getUTCHours() + 1);
+    date.setUTCHours(date.getUTCHours() + 2);
+
     const year = date.toISOString().slice(0, 4);
     const month = date.toISOString().slice(5, 7);
     const day = date.toISOString().slice(8, 10);
-    console.log(day);
+
     const dateString = `${year}-${month}-${day}`;
 
     return dateString;
