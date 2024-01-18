@@ -9,8 +9,9 @@ export class CustomerDTO implements Customer {
     public C_ACCTBAL: number;
     public C_MKTSEGMENT: string;
     public C_COMMENT: string;
+    public C_REVENUE?: number;
 
-    constructor (customerKey: string, name: string, address: string, nationKey: string, phone: string, acctBal: number, mktSegment: string, comment: string){
+    constructor (customerKey: string, name: string, address: string, nationKey: string, phone: string, acctBal: number, mktSegment: string, comment: string, revenue?: number){
         this.C_CUSTKEY = customerKey;
         this.C_NAME = name;
         this.C_ADDRESS = address;
@@ -19,6 +20,7 @@ export class CustomerDTO implements Customer {
         this.C_ACCTBAL = acctBal;
         this.C_MKTSEGMENT = mktSegment;
         this.C_COMMENT = comment;
+        this.C_REVENUE = revenue;
     }
     
 }

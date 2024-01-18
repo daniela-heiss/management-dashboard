@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerDTO } from "../model/customerDTO";
-import { CustomerService } from "../service/customer.service";
+import { OrdersDTO } from "../model/ordersDTO";
+import { OrdersService } from "../service/orders.service";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 import { NgForm } from "@angular/forms";
@@ -12,16 +12,16 @@ import { NgForm } from "@angular/forms";
 })
 export class HighestRevCustomerComponent implements OnInit {
   //public customer: CustomerDTO;
-  private customerService: CustomerService;
-  public customers: Observable<CustomerDTO[]>;
+  private orderService: OrdersService;
+  public customers: Observable<OrdersDTO[]>;
   //public customerOne: Observable<CustomerDTO>;
 
   startDate: Date;
   endDate: Date;
 
-  constructor(customerService: CustomerService){
-    this.customerService = customerService;
-    this.customers = this.customerService.getHighestRevCustomer('2023-12-11', '2023-12-13');
+  constructor(ordersService: OrdersService){
+    this.orderService = ordersService;
+    this.customers = this.orderService.getHighestRevCustomer('2023-12-11', '2023-12-13');
     //this.customerOne = this.customers.pipe(first());
 
     this.startDate = new Date('12/11/2023');

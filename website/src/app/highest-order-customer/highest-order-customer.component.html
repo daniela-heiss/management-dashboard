@@ -4,8 +4,8 @@
         <mat-form-field appearance="fill">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date" #dateRangeStart>
-            <input matEndDate placeholder="End date" #dateRangeEnd (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+            <input matStartDate placeholder="Start date" #dateRangeStart [value]="startDate">
+            <input matEndDate placeholder="End date" #dateRangeEnd [value]="endDate" (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
@@ -14,34 +14,34 @@
     
     <div class="customer-list">
         <div class="customer">
-            <h1>3234 Orders</h1>
-            <h2>Jack Berry</h2>
-            <p>1231$</p>
-            <p>123123</p>
+            <h1>{{(customers | async)?.[0]?.CountedOrders}} Orders</h1>
+            <h2>ID: {{(customers | async)?.[0]?.O_CUSTKEY}}</h2>
+            <!--<p>{{(customers | async)?.[0]?.}</p>
+            <p>{{(customers | async)?.[0]?.C_CUSTKEY}}</p>-->
         </div>
         <div class="customer">
-            <h1>3123 Orders</h1>
-            <h2>Amir Terry</h2>
-            <p>1231$</p>
-            <p>123452</p>
+            <h1>{{(customers | async)?.[1]?.CountedOrders}} Orders</h1>
+            <h2>ID: {{(customers | async)?.[1]?.O_CUSTKEY}}</h2>
+            <!--<p>1231$</p>
+            <p>123452</p>-->
         </div>
         <div class="customer">
-            <h1>3002 Orders</h1>
-            <h2>Ember Lerry</h2>
-            <p>1231$</p>
-            <p>114752</p>
+            <h1>{{(customers | async)?.[2]?.CountedOrders}} Orders</h1>
+            <h2>ID: {{(customers | async)?.[2]?.O_CUSTKEY}}</h2>
+            <!--<p>1231$</p>
+            <p>114752</p>-->
         </div>
         <div class="customer">
-            <h1>2950 Orders</h1>
-            <h2>John Kerry</h2>
-            <p>1231$</p>
-            <p>114257</p>
+            <h1>{{(customers | async)?.[3]?.CountedOrders}} Orders</h1>
+            <h2>ID: {{(customers | async)?.[3]?.O_CUSTKEY}}</h2>
+           <!-- <p>1231$</p>
+            <p>114257</p>-->
         </div>
         <div class="customer">
-            <h1>2800 Orders</h1>
-            <h2>Mariah Perry</h2>
-            <p>1231$</p>
-            <p>114122</p>
+            <h1>{{(customers | async)?.[4]?.CountedOrders}} Orders</h1>
+            <h2>ID: {{(customers | async)?.[4]?.O_CUSTKEY}}</h2>
+           <!-- <p>1231$</p>
+            <p>114122</p>-->
         </div>
     </div>
 </div>

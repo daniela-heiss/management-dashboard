@@ -30,4 +30,5 @@ export interface Customer {
     C_ACCTBAL: number;
     C_MKTSEGMENT: string;
     C_COMMENT: string;
+    C_REVENUE?: number;
   }
