@@ -10,8 +10,9 @@ export class OrdersDTO implements Orders {
     public O_CLERK: Text;
     public O_SHIPPRIORITY: number;
     public O_COMMENT: string;
+    public CountedOrders?: number;
 
-    constructor(orderKey: number, customerKey: number, orderStatus: Text, totalPrice: number, orderDate: Date, orderPriority: Text, clerk: Text, shipPriority: number, comment: string){
+    constructor(orderKey: number, customerKey: number, orderStatus: Text, totalPrice: number, orderDate: Date, orderPriority: Text, clerk: Text, shipPriority: number, comment: string, CountedOrders?: number){
         this.O_ORDERKEY = orderKey;
         this.O_CUSTKEY = customerKey;
         this.O_ORDERSTATUS = orderStatus;
@@ -21,5 +22,6 @@ export class OrdersDTO implements Orders {
         this.O_CLERK = clerk;
         this.O_SHIPPRIORITY = shipPriority;
         this.O_COMMENT = comment;
+        this.CountedOrders = CountedOrders;
     }
 }

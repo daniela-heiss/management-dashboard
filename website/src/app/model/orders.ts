@@ -32,4 +32,5 @@ export interface Orders {
     O_CLERK: Text;
     O_SHIPPRIORITY: number;
     O_COMMENT: string;
+    CountedOrders?: number;
   }
