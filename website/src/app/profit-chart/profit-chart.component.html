@@ -1,1 +1,18 @@
-<canvas id="profitChart"></canvas>
+<div class="revenueChart">
+    <div class="titleDatepicker">
+<h2>Total Revenue</h2>
+<mat-form-field appearance="fill">
+    <input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date" [max]="maxDate" [min]="minDate" readonly>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp
+                    startView="multi-year"
+                    (yearSelected)="chosenYearHandler($event, dp)"
+                   
+                    panelClass="example-month-picker">
+    </mat-datepicker>
+  </mat-form-field>
+</div>
+<div class="chart">
+    <canvas id="profitChart"></canvas>
+</div>
+</div>

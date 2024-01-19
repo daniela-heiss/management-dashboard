@@ -48,11 +48,11 @@ export const MY_FORMATS = {
   ],
 })
 export class RevNextYearComponent implements OnInit{
-  date = new FormControl(moment());
+  date = new FormControl(moment('2024-01-01'));
   //dateValue: Date;
   private revenueService: RevenueService;
   public expectedRev: Observable<Revenue>;
-  minDate = new Date(2024, 0, 1);
+  minDate = new Date('2024-01-01');
 
   constructor(revenueService: RevenueService){
     this.revenueService = revenueService;
@@ -80,14 +80,14 @@ export class RevNextYearComponent implements OnInit{
     this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToYear(newDate));
   }
 
-  onYearChange(date: HTMLInputElement){
+  /*onYearChange(date: HTMLInputElement){
     if (date.value != ""){
 
       const newDate = new Date(date.value);
 
       this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToString(newDate));
     }
-  }
+  }*/
 
   dateToString(date: Date){
     date.setUTCHours(date.getUTCHours() + 2);

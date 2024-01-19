@@ -4,8 +4,8 @@
         <mat-form-field appearance="fill">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date" #dateRangeStart [value]="startDate">
-            <input matEndDate placeholder="End date" #dateRangeEnd [value]="endDate" (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+            <input matStartDate placeholder="Start date" #dateRangeStart [value]="startDate" readonly>
+            <input matEndDate placeholder="End date" #dateRangeEnd [value]="endDate" (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)" readonly>
         </mat-date-range-input>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
