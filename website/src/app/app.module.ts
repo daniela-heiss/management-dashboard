@@ -20,10 +20,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ProfitChartComponent } from './profit-chart/profit-chart.component';
 import { RevenueComponent } from './revenue/revenue.component';
-import { ProfitsComponent } from './profits/profits.component';
-import { RevLastMonthComponent } from './rev-last-month/rev-last-month.component';
 import { RevNextYearComponent } from './rev-next-year/rev-next-year.component';
-import { RevLastYearComponent } from './rev-last-year/rev-last-year.component';
 import { HighestRevCustomerComponent } from './highest-rev-customer/highest-rev-customer.component';
 import { HighestOrderCustomerComponent } from './highest-order-customer/highest-order-customer.component';
  
@@ -37,10 +34,7 @@ import { HighestOrderCustomerComponent } from './highest-order-customer/highest-
     CustomerComponent,
     ProfitChartComponent,
     RevenueComponent,
-    ProfitsComponent,
-    RevLastMonthComponent,
     RevNextYearComponent,
-    RevLastYearComponent,
     HighestRevCustomerComponent,
     HighestOrderCustomerComponent
   ],
