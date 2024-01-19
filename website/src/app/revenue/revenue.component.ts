@@ -18,16 +18,23 @@ export class RevenueComponent implements OnInit {
 
   startDate: Date;
   endDate: Date;
+  monthStartDate: Date;
+  monthEndDate: Date;
+  yearStartDate: Date;
+  yearEndDate: Date;
 
   constructor(revenueService: RevenueService){
-    this.startDate = new Date('12/11/2023');
-    this.endDate = new Date('12/13/2023');
+    this.startDate = new Date('2023-12-11');
+    this.endDate = new Date('2023-12-13');
+    this.monthStartDate = new Date('2023-11-01');
+    this.monthEndDate = new Date ('2023-11-30');
+    this.yearStartDate = new Date ('2022-01-31');
+    this.yearEndDate = new Date ('2022-12-31');
 
     this.revenueService = revenueService;
     this.totalRev = this.revenueService.getRevenue('2023-12-11', '2023-12-13');
     this.lastMonthRev = this.revenueService.getRevenue('2023-11-01', '2023-11-30');
     this.lastYearRev = this.revenueService.getRevenue('2022-01-31', '2022-12-31');
-
   }
 
   ngOnInit() {}
@@ -40,7 +47,11 @@ export class RevenueComponent implements OnInit {
   
       const dateStart = new Date(dateRangeStart.value);
       const dateEnd = new Date(dateRangeEnd.value);
-  
+
+      this.monthStartDate = new Date(lastMonthDates[0]);
+      this.monthEndDate = new Date (lastMonthDates[1]);
+      this.yearStartDate = new Date (lastYearDates[0]);
+      this.yearEndDate = new Date (lastYearDates[1]);
       
       this.totalRev = this.revenueService.getRevenue(this.dateToString(dateStart), this.dateToString(dateEnd));
       this.lastYearRev = this.revenueService.getRevenue(lastYearDates[0], lastYearDates[1]);

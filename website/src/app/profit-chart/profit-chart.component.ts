@@ -55,7 +55,7 @@ export class ProfitChartComponent implements OnInit{
   chart: any;
   maxDate: Date;
   minDate: Date;
-  data: string;
+
   private revenueService: RevenueService;
   public yearRev: Observable<RevenueYear>
   /*public janRev: Observable<Revenue>;
@@ -77,7 +77,7 @@ export class ProfitChartComponent implements OnInit{
 
     this.revenueService = revenueService;
     this.yearRev = this.revenueService.getRevenueYear('2023');
-    this.yearRev = this.revenueService.getRevenueYear('2023').subscribe((data) => {
+    /*this.yearRev = this.revenueService.getRevenueYear('2023').subscribe((data) => {
       this.data = data;
     /*this.janRev = this.revenueService.getRevenue('2023-01-01', '2023-01-31');
     this.febRev = this.revenueService.getRevenue('2023-02-01', '2023-02-28');

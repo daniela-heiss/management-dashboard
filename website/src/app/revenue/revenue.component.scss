@@ -11,7 +11,7 @@
 .revenueBlock{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20rem;
+    gap: 10rem;
 
     background-color: var(--color-white);
     padding: var(--card-padding);
@@ -22,10 +22,10 @@
     transition: all 0.3s ease;
 }
 
-.revTotal h3{
+/*.revTotal h3{
     margin-top: 3.7rem;
 }
 
 .revMonth h3{
     margin-top: 3.7rem;
-}
+}*/
