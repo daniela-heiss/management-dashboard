@@ -49,7 +49,6 @@ export const MY_FORMATS = {
 })
 export class RevNextYearComponent implements OnInit{
   date = new FormControl(moment('2024-01-01'));
-  //dateValue: Date;
   private revenueService: RevenueService;
   public expectedRev: Observable<Revenue>;
   minDate = new Date('2024-01-01');
@@ -58,8 +57,6 @@ export class RevNextYearComponent implements OnInit{
     this.revenueService = revenueService;
     this.expectedRev = this.revenueService.getExpectedRevenue('2024');
     this.minDate = new Date('2024-01-01');
-    //this.dateValue = new Date('2023.01.01');
-    //this.customerOne = this.customers.pipe(first())
   }
 
  ngOnInit(): void {
@@ -79,15 +76,6 @@ export class RevNextYearComponent implements OnInit{
     console.log(newDate);
     this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToYear(newDate));
   }
-
-  /*onYearChange(date: HTMLInputElement){
-    if (date.value != ""){
-
-      const newDate = new Date(date.value);
-
-      this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToString(newDate));
-    }
-  }*/
 
   dateToString(date: Date){
     date.setUTCHours(date.getUTCHours() + 2);
@@ -110,44 +98,4 @@ export class RevNextYearComponent implements OnInit{
 
     return yearString;
   }
-  /*dateRangeChange(selectedDate: HTMLInputElement){
-    console.log(selectedDate.value);
-    //HTML ADD: #selectedDate (dateChange)="dateRangeChange(selectedDate)"
-  }*/
 }
-
-/*export const MY_FORMATS = {
-  parse: {
-    dateInput: 'YYYY',
-  },
-  display: {
-    dateInput: 'YYYY',
-    monthYearLabel: 'YYYY',
-    monthYearA11yLabel: 'YYYY',
-  },
-};
-
-@Component({
-    providers: [
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-    },
-    { 
-     provide: MAT_DATE_FORMATS, useValue: MY_FORMATS
-    },
-   ]
-})
-
-export class MainFormComponent implements OnInit {
-
-    @ViewChild('picker', { static: false })
-    private picker!: MatDatepicker<Date>;  
-
-    chosenYearHandler(ev, input){
-      let { _d } = ev;
-      this.selectYear = _d;
-      this.picker.close()
-    }
-}*/

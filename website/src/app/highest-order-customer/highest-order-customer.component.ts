@@ -14,7 +14,6 @@ export class HighestOrderCustomerComponent implements OnInit {
 
   private customerService: CustomerService;
   public customers: Observable<CustomerDTO[]>;
-  //public customerOne: Observable<CustomerDTO>;
 
   startDate: Date;
   endDate: Date;
@@ -22,7 +21,6 @@ export class HighestOrderCustomerComponent implements OnInit {
   constructor(customerService: CustomerService){
     this.customerService = customerService;
     this.customers = this.customerService.getHighestOrdersCustomer('2023-12-11', '2023-12-13');
-    //this.customerOne = this.customers.pipe(first());
 
     this.startDate = new Date('12/11/2023');
     this.endDate = new Date('12/13/2023');

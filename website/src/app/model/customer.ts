@@ -31,4 +31,5 @@ export interface Customer {
     C_MKTSEGMENT: string;
     C_COMMENT: string;
     C_REVENUE?: number;
+    C_COUNTEDORDERS?: number;
   }

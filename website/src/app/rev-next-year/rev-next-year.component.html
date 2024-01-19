@@ -1,39 +1,4 @@
 <div class="expected">
-   <!-- <mat-form-field appearance="fill">
-         <mat-label>Enter a year</mat-label>
-         <mat-date-range-input [rangePicker]="picker">
-           <input matStartDate placeholder="Start date">
-           <input matEndDate placeholder="End date">
-         </mat-date-range-input>
-         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-         <mat-date-range-picker #picker></mat-date-range-picker>
-       </mat-form-field>-->
-
-      <!--<mat-form-field appearance="outline">
-        <mat-label>Ano</mat-label>
-        <input [(ngModel)]="selectYear" [formControl]="dateForm" matInput [matDatepicker]="picker" />
-        <mat-datepicker-toggle matSuffix [for]="picker" ></mat- datepicker-toggle>
-        <mat-datepicker #picker startView="multi-year" (yearSelected)="chosenYearHandler($event, picker)">
-        </mat-datepicker>
-    </mat-form-field>--> 
-
-   <!--<mat-form-field appearance="fill">
-      <mat-label>Enter a year</mat-label>
-      <input matInput[matDatepicker]="picker">
-      <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix[for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-
-
-    </mat-form-field>-->
-
-    <!--<mat-form-field>
-      <input matInput [matDatepicker]="myDatepicker">
-      <mat-label>Enter a year</mat-label>
-      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #myDatepicker startView="year"></mat-datepicker>
-    </mat-form-field>-->
-
     <mat-form-field appearance="outline">
       <input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date" [min]="minDate" readonly>
       <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
@@ -49,4 +14,3 @@
      <h1>${{expectedRev | async}}</h1>
 </div>
 
-<!--(dateChange)="YearChange(date)" -->
