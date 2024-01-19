@@ -1,14 +1,14 @@
 export interface RevenueYear {
-    JANUARY: number;
-    FEBRUARY: number;
-    MARCH: number;
-    APRIL: number;
-    MAY: number;
-    JUNE: number;
-    JULY: number;
-    AUGUST: number;
-    SEPTEMBER: number;
-    OCTOBER: number;
-    NOVEMBER: number;
-    DECEMBER: number;
+    January: number;
+    February: number;
+    March: number;
+    April: number;
+    May: number;
+    June: number;
+    July: number;
+    August: number;
+    September: number;
+    October: number;
+    November: number;
+    December: number;
   }

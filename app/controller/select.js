@@ -89,6 +89,42 @@ async function getTotalRev(request,response){
     response.json(results);
 }
 
+//Calculate rev per month for a requested year
+async function getYearRev(request,response){
+    var yearInput = Number(request.query.year);
+    const month = '01';
+    const day = '01';
+    const dateString = `${yearInput}-${month}-${day}`;
+
+    const newDate = new Date(dateString);
+
+    var results = {};
+
+    for (let i = 0; i < 12; i++) {
+        const start = new Date(newDate.getFullYear(), i, 1);
+        const end = new Date(newDate.getFullYear(), i + 1, 0);
+
+        const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(start);
+
+        const monthResults = await order.findAll({
+            attributes: [
+                [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'total']
+            ],
+            where:{
+                "O_ORDERDATE":{
+                    [Op.and]:{
+                        [Op.gte]: start,
+                        [Op.lte]: end
+                    }
+                }
+            }
+        });
+
+        results[monthName] = monthResults[0].dataValues.total || 0;
+    }
+
+    response.json(results);
+}
 
 //Calculate last month Revenue
 async function getLastMonthRev(request,response){
@@ -134,5 +170,6 @@ export{
     getTotalRev,
     getLastMonthRev,
     getExpectedRev,
-    getAllOrders
+    getAllOrders,
+    getYearRev
 }

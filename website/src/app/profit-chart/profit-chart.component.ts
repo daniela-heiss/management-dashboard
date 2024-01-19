@@ -5,7 +5,7 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
-import { Revenue } from "../model/revenue";
+import { RevenueYear } from "../model/revenueYear";
 import { RevenueService } from "../service/revenue.service";
 import { Observable } from "rxjs";
 import { NgForm } from "@angular/forms";
@@ -55,8 +55,10 @@ export class ProfitChartComponent implements OnInit{
   chart: any;
   maxDate: Date;
   minDate: Date;
+  data: string;
   private revenueService: RevenueService;
-  public janRev: Observable<Revenue>;
+  public yearRev: Observable<RevenueYear>
+  /*public janRev: Observable<Revenue>;
   public febRev: Observable<Revenue>;
   public marRev: Observable<Revenue>;
   public aprRev: Observable<Revenue>;
@@ -67,14 +69,17 @@ export class ProfitChartComponent implements OnInit{
   public sepRev: Observable<Revenue>;
   public octRev: Observable<Revenue>;
   public novRev: Observable<Revenue>;
-  public decRev: Observable<Revenue>;
+  public decRev: Observable<Revenue>;*/
 
   constructor(revenueService: RevenueService){
     this.maxDate = new Date('2023-12-31');
     this.minDate = new Date('2022-01-01')
 
     this.revenueService = revenueService;
-    this.janRev = this.revenueService.getRevenue('2023-01-01', '2023-01-31');
+    this.yearRev = this.revenueService.getRevenueYear('2023');
+    this.yearRev = this.revenueService.getRevenueYear('2023').subscribe((data) => {
+      this.data = data;
+    /*this.janRev = this.revenueService.getRevenue('2023-01-01', '2023-01-31');
     this.febRev = this.revenueService.getRevenue('2023-02-01', '2023-02-28');
     this.marRev = this.revenueService.getRevenue('2023-03-01', '2023-03-31');
     this.aprRev = this.revenueService.getRevenue('2023-04-01', '2023-04-30');
@@ -85,7 +90,7 @@ export class ProfitChartComponent implements OnInit{
     this.sepRev = this.revenueService.getRevenue('2023-09-01', '2023-09-30');
     this.octRev = this.revenueService.getRevenue('2023-10-01', '2023-10-31');
     this.novRev = this.revenueService.getRevenue('2023-11-01', '2023-11-30');
-    this.decRev = this.revenueService.getRevenue('2023-12-01', '2023-12-31');
+    this.decRev = this.revenueService.getRevenue('2023-12-01', '2023-12-31');*/
   }
 
   ngOnInit() {
@@ -103,8 +108,6 @@ export class ProfitChartComponent implements OnInit{
 
     const newDate = this.date.value?.toDate() as Date;
     console.log(newDate);
-    //this.generateChart(newDate);
-    //this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToYear(newDate));
   }
 
 
