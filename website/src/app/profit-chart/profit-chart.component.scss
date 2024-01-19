@@ -24,3 +24,11 @@
     gap: 1.8rem;
     grid-template-columns: auto auto;
 }
+
+.example-month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+  .example-month-picker .mat-calendar-arrow {
+    display: none;
+  }
