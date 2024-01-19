@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { FormControl } from '@angular/forms';
 import {
@@ -7,7 +7,7 @@ import {
 } from '@angular/material-moment-adapter';
 import { RevenueYear } from "../model/revenueYear";
 import { RevenueService } from "../service/revenue.service";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { NgForm } from "@angular/forms";
 
 import {
@@ -57,46 +57,54 @@ export class ProfitChartComponent implements OnInit{
   minDate: Date;
 
   private revenueService: RevenueService;
-  public yearRev: Observable<RevenueYear>
-  /*public janRev: Observable<Revenue>;
-  public febRev: Observable<Revenue>;
-  public marRev: Observable<Revenue>;
-  public aprRev: Observable<Revenue>;
-  public mayRev: Observable<Revenue>;
-  public junRev: Observable<Revenue>;
-  public julRev: Observable<Revenue>;
-  public augRev: Observable<Revenue>;
-  public sepRev: Observable<Revenue>;
-  public octRev: Observable<Revenue>;
-  public novRev: Observable<Revenue>;
-  public decRev: Observable<Revenue>;*/
+  private subscription: Subscription;
+  //public yearRev: Observable<RevenueYear>
+ yearTotalRev: RevenueYear = {
+    January: 0,
+    February: 0,
+    March: 0,
+    April: 0,
+    May: 0,
+    June: 0,
+    July: 0,
+    August: 0,
+    September: 0,
+    October: 0,
+    November: 0,
+    December: 0
+  };
 
   constructor(revenueService: RevenueService){
     this.maxDate = new Date('2023-12-31');
     this.minDate = new Date('2022-01-01')
 
     this.revenueService = revenueService;
-    this.yearRev = this.revenueService.getRevenueYear('2023');
-    /*this.yearRev = this.revenueService.getRevenueYear('2023').subscribe((data) => {
-      this.data = data;
-    /*this.janRev = this.revenueService.getRevenue('2023-01-01', '2023-01-31');
-    this.febRev = this.revenueService.getRevenue('2023-02-01', '2023-02-28');
-    this.marRev = this.revenueService.getRevenue('2023-03-01', '2023-03-31');
-    this.aprRev = this.revenueService.getRevenue('2023-04-01', '2023-04-30');
-    this.mayRev = this.revenueService.getRevenue('2023-05-01', '2023-05-31');
-    this.junRev = this.revenueService.getRevenue('2023-06-01', '2023-06-30');
-    this.julRev = this.revenueService.getRevenue('2023-07-01', '2023-07-31');
-    this.augRev = this.revenueService.getRevenue('2023-08-01', '2023-08-31');
-    this.sepRev = this.revenueService.getRevenue('2023-09-01', '2023-09-30');
-    this.octRev = this.revenueService.getRevenue('2023-10-01', '2023-10-31');
-    this.novRev = this.revenueService.getRevenue('2023-11-01', '2023-11-30');
-    this.decRev = this.revenueService.getRevenue('2023-12-01', '2023-12-31');*/
+    //this.yearRev = this.revenueService.getRevenueYear('2023');
+
+   /* this.revenueService.getRevenueYear('2023').subscribe((data: RevenueYear) => {
+      this.yearTotalRev = data;
+      //console.log(this.yearTotalRev.January);
+    });*/
+    this.subscription = this.revenueService.getRevenueYear('2023').subscribe((data: RevenueYear) => {
+      this.yearTotalRev = data;
+      //console.log(this.yearTotalRev.November);
+      this.generateChart();
+    });
   }
 
-  ngOnInit() {
-    const newDate = this.date.value?.toDate() as Date
-    this.generateChart(newDate);
-    
+  async ngOnInit() {
+    //const newDate = this.date.value?.toDate() as Date
+
+   /* this.subscription = this.revenueService.getRevenueYear('2023').subscribe((data: RevenueYear) => {
+      this.yearTotalRev = data;
+      //console.log(this.yearTotalRev.November);
+      this.generateChart();
+    });*/
+    //this.generateChart();
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
   chosenYearHandler(normalizedYear: Moment, dp: any) {
@@ -104,19 +112,32 @@ export class ProfitChartComponent implements OnInit{
     ctrlValue?.year(normalizedYear.year());
     this.date.setValue(ctrlValue);
     dp.close();
-    console.log(this.date.value);
 
-    const newDate = this.date.value?.toDate() as Date;
-    console.log(newDate);
+    const dateString = this.date.value?.format('YYYY');
+    this.subscription = this.revenueService.getRevenueYear(String(dateString)).subscribe((data: RevenueYear) => {
+      this.yearTotalRev = data;
+      this.updateChart();
+    });
   }
 
 
-  generateChart(date: Date) {
+  generateChart() {
     const data = {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [{
         label: 'Total Revenue',
-        data: [1000, 1500, 1200, 1700, 1600, 2000, 3000, 2500, 2100, 2300, 2500, 300],
+        data: [this.yearTotalRev.January, 
+              this.yearTotalRev.February, 
+              this.yearTotalRev.March, 
+              this.yearTotalRev.April, 
+              this.yearTotalRev.May, 
+              this.yearTotalRev.June, 
+              this.yearTotalRev.July, 
+              this.yearTotalRev.August, 
+              this.yearTotalRev.September, 
+              this.yearTotalRev.October, 
+              this.yearTotalRev.November, 
+              this.yearTotalRev.December],
         borderColor: 'green',
         fill: false
       }]
@@ -128,7 +149,7 @@ export class ProfitChartComponent implements OnInit{
       aspectRatio: 1,
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: false
         }
       }
     };
@@ -140,9 +161,22 @@ export class ProfitChartComponent implements OnInit{
     });
   }
 
-  updateChart(date: Date) {
+  updateChart() {
     if (this.chart) {
-      this.chart.data.datasets[0].data = [1000, 1500, 1200, 1700, 1600, 2000, 3000, 2500, 2100, 2300];
+      
+      this.chart.data.datasets[0].data = 
+        [this.yearTotalRev.January, 
+        this.yearTotalRev.February, 
+        this.yearTotalRev.March, 
+        this.yearTotalRev.April, 
+        this.yearTotalRev.May, 
+        this.yearTotalRev.June, 
+        this.yearTotalRev.July, 
+        this.yearTotalRev.August, 
+        this.yearTotalRev.September, 
+        this.yearTotalRev.October, 
+        this.yearTotalRev.November, 
+        this.yearTotalRev.December];
       this.chart.update();
     }
   }

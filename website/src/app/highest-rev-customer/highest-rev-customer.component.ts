@@ -29,10 +29,6 @@ export class HighestRevCustomerComponent implements OnInit {
    
  }
 
-
-
-
-
   dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
     if (dateRangeStart.value != "" && dateRangeEnd.value != ""){
 

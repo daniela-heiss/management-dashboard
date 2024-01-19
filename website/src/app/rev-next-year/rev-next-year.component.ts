@@ -70,10 +70,8 @@ export class RevNextYearComponent implements OnInit{
     ctrlValue?.year(normalizedYear.year());
     this.date.setValue(ctrlValue);
     dp.close();
-    console.log(this.date.value);
 
     const newDate = this.date.value?.toDate() as Date;
-    console.log(newDate);
     this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToYear(newDate));
   }
 

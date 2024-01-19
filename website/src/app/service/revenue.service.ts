@@ -23,6 +23,6 @@ export class RevenueService {
 
   public getRevenueYear(year: string): Observable<RevenueYear> {
     const options = {params: new HttpParams().set('year', year)};
-    return this.httpClient.get<RevenueYear>('http://localhost:8080/orders/getExpectedRev', options);
+    return this.httpClient.get<RevenueYear>('http://localhost:8080/orders/getYearRev', options);
   }
 }
