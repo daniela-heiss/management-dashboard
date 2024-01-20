@@ -100,7 +100,8 @@ export class ProfitChartComponent implements OnInit {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [{
         label: 'Total Revenue',
-        data: [this.yearTotalRev.January,
+        data: [
+        this.yearTotalRev.January,
         this.yearTotalRev.February,
         this.yearTotalRev.March,
         this.yearTotalRev.April,
@@ -138,8 +139,8 @@ export class ProfitChartComponent implements OnInit {
   updateChart() {
     if (this.chart) {
 
-      this.chart.data.datasets[0].data =
-        [this.yearTotalRev.January,
+      this.chart.data.datasets[0].data = [
+        this.yearTotalRev.January,
         this.yearTotalRev.February,
         this.yearTotalRev.March,
         this.yearTotalRev.April,
