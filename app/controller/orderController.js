@@ -8,10 +8,9 @@ async function getTotalRev(request, response) {
     var end = request.query.endDate;
     const startDate = new Date(start)
     const endDate = new Date(end)
-    var results = await order.findAll({
-        attributes: [[sequelize.fn('SUM', sequelize.col('O_TOTALPRICE')),'O_REVENUE']],
+    var results = await order.sum('O_TOTALPRICE',{
         where: {
-            "O_ORDERDATE": {
+            'O_ORDERDATE': {
                 [Op.and]: {
                     [Op.gte]: startDate,
                     [Op.lte]: endDate
@@ -23,7 +22,7 @@ async function getTotalRev(request, response) {
     if (results == null) {
         results = 0;
     }
-    response.json(results);
+    response.json([{O_REVENUE: results}]);
 }
 
 
@@ -46,7 +45,7 @@ async function getYearRev(request, response) {
 
         const monthResults = await order.findAll({
             attributes: [
-                [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'total']
+                [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'O_REVENUE']
             ],
             where: {
                 "O_ORDERDATE": {
@@ -58,7 +57,7 @@ async function getYearRev(request, response) {
             }
         });
 
-        results[monthName] = monthResults[0].dataValues.total || 0;
+        results[monthName] = monthResults[0].dataValues.O_REVENUE || 0;
     }
 
     response.json(results);
