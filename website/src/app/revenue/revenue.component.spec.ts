@@ -10,8 +10,8 @@ describe('RevenueComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [RevenueComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(RevenueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

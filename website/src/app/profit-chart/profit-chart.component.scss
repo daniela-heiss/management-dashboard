@@ -1,8 +1,8 @@
-.revenueChart{
+.revenueChart {
     margin-top: 1.3rem;
 }
 
-.chart{
+.chart {
     background-color: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -13,11 +13,11 @@
     transition: all 0.3s ease;
 }
 
-.chart:hover{
+.chart:hover {
     box-shadow: none;
 }
-  
-.titleDatepicker{
+
+.titleDatepicker {
     display: grid;
     width: 100%;
     margin: 0 auto;
@@ -27,8 +27,8 @@
 
 .example-month-picker .mat-calendar-period-button {
     pointer-events: none;
-  }
-  
-  .example-month-picker .mat-calendar-arrow {
+}
+
+.example-month-picker .mat-calendar-arrow {
     display: none;
-  }
+}

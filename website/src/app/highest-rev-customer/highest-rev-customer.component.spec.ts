@@ -10,8 +10,8 @@ describe('HighestRevCustomerComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HighestRevCustomerComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(HighestRevCustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

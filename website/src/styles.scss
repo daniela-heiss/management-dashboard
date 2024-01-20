@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-:root{
+:root {
     --color-background: #e4eee9;
     --color-light: rgba(92, 179, 98, 0.18);
     --color-dark-variant: #748a7a;
@@ -16,7 +16,7 @@
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     outline: 0;
@@ -25,7 +25,7 @@
     box-sizing: border-box;
 }
 
-.container{
+.container {
     display: grid;
     width: 96%;
     margin: 0 auto;
@@ -33,7 +33,7 @@
     grid-template-columns: 12rem 0 auto;
 }
 
-body{
+body {
     width: 100vw;
     height: 100vh;
     font-size: 0.88rem;
@@ -41,13 +41,12 @@ body{
     overflow-x: hidden;
     color: var(--color-dark);
     background-color: var(--color-background);
-    font-family: Roboto, 
-    "Helvetica Neue", 
-    sans-serif; 
+    font-family: Roboto,
+        "Helvetica Neue",
+        sans-serif;
 }
 
-main{
+main {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
 }
-

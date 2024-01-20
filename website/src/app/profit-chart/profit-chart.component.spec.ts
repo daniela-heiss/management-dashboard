@@ -10,8 +10,8 @@ describe('ProfitChartComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ProfitChartComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(ProfitChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,4 +1,4 @@
-import{Orders} from "./orders";
+import { Orders } from "./orders";
 
 export class OrdersDTO implements Orders {
     public O_ORDERKEY: number;
@@ -12,7 +12,7 @@ export class OrdersDTO implements Orders {
     public O_COMMENT: string;
     public CountedOrders?: number;
 
-    constructor(orderKey: number, customerKey: number, orderStatus: Text, totalPrice: number, orderDate: Date, orderPriority: Text, clerk: Text, shipPriority: number, comment: string, CountedOrders?: number){
+    constructor(orderKey: number, customerKey: number, orderStatus: Text, totalPrice: number, orderDate: Date, orderPriority: Text, clerk: Text, shipPriority: number, comment: string, CountedOrders?: number) {
         this.O_ORDERKEY = orderKey;
         this.O_CUSTKEY = customerKey;
         this.O_ORDERSTATUS = orderStatus;

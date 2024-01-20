@@ -1,21 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {
-  MomentDateAdapter,
-  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
-} from '@angular/material-moment-adapter';
+import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { Revenue } from "../model/revenue";
 import { RevenueService } from "../service/revenue.service";
 import { Observable } from "rxjs";
-import { NgForm } from "@angular/forms";
-
-import {
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MAT_DATE_LOCALE,
-} from '@angular/material/core';
-import { MatDatepicker } from '@angular/material/datepicker';
-
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
 
@@ -47,23 +36,21 @@ export const MY_FORMATS = {
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
 })
-export class RevNextYearComponent implements OnInit{
+export class RevNextYearComponent implements OnInit {
   date = new FormControl(moment('2024-01-01'));
   private revenueService: RevenueService;
   public expectedRev: Observable<Revenue[]>;
   minDate = new Date('2024-01-01');
 
-  constructor(revenueService: RevenueService){
+  constructor(revenueService: RevenueService) {
     this.revenueService = revenueService;
     this.expectedRev = this.revenueService.getExpectedRevenue('2024');
     this.minDate = new Date('2024-01-01');
   }
 
- ngOnInit(): void {
-   
- }
+  ngOnInit(): void {
 
-
+  }
 
   chosenYearHandler(normalizedYear: Moment, dp: any) {
     const ctrlValue = this.date.value;
@@ -75,7 +62,7 @@ export class RevNextYearComponent implements OnInit{
     this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToYear(newDate));
   }
 
-  dateToString(date: Date){
+  dateToString(date: Date) {
     date.setUTCHours(date.getUTCHours() + 2);
 
     const year = date.toISOString().slice(0, 4);
@@ -87,7 +74,7 @@ export class RevNextYearComponent implements OnInit{
     return dateString;
   }
 
-  dateToYear(date: Date){
+  dateToYear(date: Date) {
     date.setUTCHours(date.getUTCHours() + 2);
 
     const year = date.toISOString().slice(0, 4);

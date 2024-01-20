@@ -1,40 +1,40 @@
-
 <div class="revenueBlock">
-                <div class ="revTotal">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Enter a date range</mat-label>
-                    <mat-date-range-input [rangePicker]="picker">
-                      <input matStartDate placeholder="Start date" #dateRangeStart [value]="startDate" readonly>
-                      <input matEndDate placeholder="End date" #dateRangeEnd [value]="endDate" (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)" readonly>
-                    </mat-date-range-input>
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-date-range-picker #picker></mat-date-range-picker>
-                  </mat-form-field>
-                <h3>Total Revenue</h3>
-                <h1>${{(totalRev | async)?.[0]?.O_REVENUE | number}}</h1>
-                </div>
-
-                <div class="revMonth">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Date Range</mat-label>
-                    <mat-date-range-input>
-                      <input matStartDate   [value]="monthStartDate" disabled>
-                      <input matEndDate  [value]="monthEndDate"  disabled>
-                    </mat-date-range-input>
-                  </mat-form-field>
-                <h3>Revenue Last Month</h3>
-                <h1>${{(lastMonthRev | async)?.[0]?.O_REVENUE | number}}</h1>
-                </div>
-
-                <div class="revYear">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Date Range</mat-label>
-                    <mat-date-range-input>
-                      <input matStartDate  [value]="yearStartDate" disabled>
-                      <input matEndDate [value]="yearEndDate" disabled>
-                    </mat-date-range-input>
-                  </mat-form-field>
-                <h3>Revenue Last Year</h3>
-                <h1>${{(lastYearRev | async)?.[0]?.O_REVENUE | number}}</h1>   
-              </div>
+  <div class="revTotal">
+    <mat-form-field appearance="outline">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date" #dateRangeStart [value]="startDate" readonly>
+        <input matEndDate placeholder="End date" #dateRangeEnd [value]="endDate"
+          (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)" readonly>
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    <h3>Total Revenue</h3>
+    <h1>${{(totalRev | async)?.[0]?.O_REVENUE | number}}</h1>
   </div>
+
+  <div class="revMonth">
+    <mat-form-field appearance="outline">
+      <mat-label>Date Range</mat-label>
+      <mat-date-range-input>
+        <input matStartDate [value]="monthStartDate" disabled>
+        <input matEndDate [value]="monthEndDate" disabled>
+      </mat-date-range-input>
+    </mat-form-field>
+    <h3>Revenue Last Month</h3>
+    <h1>${{(lastMonthRev | async)?.[0]?.O_REVENUE | number}}</h1>
+  </div>
+
+  <div class="revYear">
+    <mat-form-field appearance="outline">
+      <mat-label>Date Range</mat-label>
+      <mat-date-range-input>
+        <input matStartDate [value]="yearStartDate" disabled>
+        <input matEndDate [value]="yearEndDate" disabled>
+      </mat-date-range-input>
+    </mat-form-field>
+    <h3>Revenue Last Year</h3>
+    <h1>${{(lastYearRev | async)?.[0]?.O_REVENUE | number}}</h1>
+  </div>
+</div>

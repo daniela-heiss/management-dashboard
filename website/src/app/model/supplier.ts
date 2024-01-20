@@ -7,7 +7,7 @@ export class Supplier {
     private acctBal: number;
     private comment: string;
 
-    constructor(suppKey: number, name: Text, address: string, nationKey: number, phone: Text, acctBal: number, comment: string){
+    constructor(suppKey: number, name: Text, address: string, nationKey: number, phone: Text, acctBal: number, comment: string) {
         this.suppKey = suppKey;
         this.name = name;
         this.address = address;

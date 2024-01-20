@@ -9,7 +9,7 @@ export class Part {
     private retailPrice: number;
     private comment: string;
 
-    constructor(partKey: number, name: string, mfgr: Text, brand: Text, type: string, size: number, container: Text, retailPrice: number, comment: string){
+    constructor(partKey: number, name: string, mfgr: Text, brand: Text, type: string, size: number, container: Text, retailPrice: number, comment: string) {
         this.partKey = partKey;
         this.name = name;
         this.mfgr = mfgr;

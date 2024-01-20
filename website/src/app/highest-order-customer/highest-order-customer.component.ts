@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerDTO } from "../model/customerDTO";
 import { CustomerService } from "../service/customer.service";
 import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
-import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-highest-order-customer',
@@ -18,7 +16,7 @@ export class HighestOrderCustomerComponent implements OnInit {
   startDate: Date;
   endDate: Date;
 
-  constructor(customerService: CustomerService){
+  constructor(customerService: CustomerService) {
     this.customerService = customerService;
     this.customers = this.customerService.getHighestOrdersCustomer('2023-12-11', '2023-12-13');
 
@@ -27,14 +25,11 @@ export class HighestOrderCustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
   }
 
-
-
-
-  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
-    if (dateRangeStart.value != "" && dateRangeEnd.value != ""){
+  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement) {
+    if (dateRangeStart.value != "" && dateRangeEnd.value != "") {
       const dateStart = new Date(dateRangeStart.value);
       const dateEnd = new Date(dateRangeEnd.value);
 
@@ -43,7 +38,7 @@ export class HighestOrderCustomerComponent implements OnInit {
 
   }
 
-  dateToString(date: Date){
+  dateToString(date: Date) {
     date.setUTCHours(date.getUTCHours() + 2);
 
     const year = date.toISOString().slice(0, 4);

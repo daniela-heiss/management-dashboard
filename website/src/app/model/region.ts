@@ -3,7 +3,7 @@ export class Region {
     private name: Text;
     private comment: string;
 
-    constructor(regionKey: number, name: Text, comment: string){
+    constructor(regionKey: number, name: Text, comment: string) {
         this.regionKey = regionKey;
         this.name = name;
         this.comment = comment;

@@ -1,14 +1,13 @@
-
-.revenueBlock:hover{
+.revenueBlock:hover {
     box-shadow: none;
 }
 
-.revenueBlock h3{
+.revenueBlock h3 {
     margin-left: 0.6rem;
     font-size: 1rem;
 }
 
-.revenueBlock{
+.revenueBlock {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10rem;
@@ -21,11 +20,3 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
-/*.revTotal h3{
-    margin-top: 3.7rem;
-}
-
-.revMonth h3{
-    margin-top: 3.7rem;
-}*/

@@ -14,12 +14,12 @@ export class OrdersComponent implements OnInit {
   public orders: Observable<OrdersDTO[]>;
   public errorMessage: string;
 
-  constructor(ordersService: OrdersService){
+  constructor(ordersService: OrdersService) {
 
     this.ordersService = ordersService;
     this.orders = this.ordersService.listOrders();
-    this.errorMessage='';
+    this.errorMessage = '';
   }
   ngOnInit(): void {
-}
+  }
 }

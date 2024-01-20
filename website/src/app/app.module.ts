@@ -9,7 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //App-Components
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,7 @@ import { RevenueComponent } from './revenue/revenue.component';
 import { RevNextYearComponent } from './rev-next-year/rev-next-year.component';
 import { HighestRevCustomerComponent } from './highest-rev-customer/highest-rev-customer.component';
 import { HighestOrderCustomerComponent } from './highest-order-customer/highest-order-customer.component';
- 
+
 
 @NgModule({
   declarations: [

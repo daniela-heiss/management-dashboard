@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerDTO} from "../model/customerDTO";
+import { CustomerDTO } from "../model/customerDTO";
 import { CustomerService } from "../service/customer.service";
 import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
-import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-highest-rev-customer',
@@ -17,7 +15,7 @@ export class HighestRevCustomerComponent implements OnInit {
   startDate: Date;
   endDate: Date;
 
-  constructor(customerService: CustomerService){
+  constructor(customerService: CustomerService) {
     this.customerService = customerService;
     this.customers = this.customerService.getHighestRevCustomer('2023-12-11', '2023-12-13');
 
@@ -25,12 +23,12 @@ export class HighestRevCustomerComponent implements OnInit {
     this.endDate = new Date('12/13/2023');
   }
 
- ngOnInit(): void {
-   
- }
+  ngOnInit(): void {
 
-  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement){
-    if (dateRangeStart.value != "" && dateRangeEnd.value != ""){
+  }
+
+  dateRangeChange(dateRangeStart: HTMLInputElement, dateRangeEnd: HTMLInputElement) {
+    if (dateRangeStart.value != "" && dateRangeEnd.value != "") {
 
       const dateStart = new Date(dateRangeStart.value);
       const dateEnd = new Date(dateRangeEnd.value);
@@ -39,7 +37,7 @@ export class HighestRevCustomerComponent implements OnInit {
     }
   }
 
-  dateToString(date: Date){
+  dateToString(date: Date) {
     date.setUTCHours(date.getUTCHours() + 2);
 
     const year = date.toISOString().slice(0, 4);

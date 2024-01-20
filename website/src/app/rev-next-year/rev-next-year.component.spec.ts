@@ -10,8 +10,8 @@ describe('RevNextYearComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [RevNextYearComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(RevNextYearComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

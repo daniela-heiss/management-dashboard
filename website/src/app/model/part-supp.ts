@@ -5,7 +5,7 @@ export class PartSupp {
     private supplyCost: number;
     private comment: string;
 
-    constructor(partKey: number, suppKey: number, availQTY: number, supplyCost: number, comment: string){
+    constructor(partKey: number, suppKey: number, availQTY: number, supplyCost: number, comment: string) {
         this.partKey = partKey;
         this.suppKey = suppKey;
         this.availQTY = availQTY;

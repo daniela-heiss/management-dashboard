@@ -16,11 +16,11 @@ export class LineItem {
     private shipMode: Text;
     private comment: string;
 
-    constructor(orderKey: number, partKey: number, suppKey: number, lineNumber: number, quantity: number, extendedPrice: number, discount: number, tax: number, returnFlag: Text, lineStatus: Text, shipDate: Date, commitDate: Date, receiptDate: Date, shipInstruct: Text, shipMode: Text, comment: string){
+    constructor(orderKey: number, partKey: number, suppKey: number, lineNumber: number, quantity: number, extendedPrice: number, discount: number, tax: number, returnFlag: Text, lineStatus: Text, shipDate: Date, commitDate: Date, receiptDate: Date, shipInstruct: Text, shipMode: Text, comment: string) {
         this.orderKey = orderKey;
         this.partKey = partKey;
         this.suppKey = suppKey;
-        this. lineNumber = lineNumber;
+        this.lineNumber = lineNumber;
         this.quantity = quantity;
         this.extendedPrice = extendedPrice;
         this.discount = discount;

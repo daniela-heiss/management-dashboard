@@ -1,4 +1,4 @@
-div{
+div {
     background-color: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -8,20 +8,19 @@ div{
     transition: all 0.3s ease;
 }
 
-div:hover{
+div:hover {
     box-shadow: none;
 }
 
-h3{
+h3 {
     margin-left: 0.6rem;
     font-size: 1rem;
 }
 
 .example-month-picker .mat-calendar-period-button {
     pointer-events: none;
-  }
-  
-  .example-month-picker .mat-calendar-arrow {
+}
+
+.example-month-picker .mat-calendar-arrow {
     display: none;
-  }
-  
+}

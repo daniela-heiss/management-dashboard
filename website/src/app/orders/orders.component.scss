@@ -1,13 +1,12 @@
-
-main .orderTable{
+main .orderTable {
     margin-top: 1.3rem;
 }
 
-main .orderTable h2{
+main .orderTable h2 {
     margin-bottom: 0.8rem;
 }
 
-main .orderTable table{
+main .orderTable table {
     background-color: var(--color-white);
     width: 100%;
     padding: var(--card-padding);
@@ -17,21 +16,21 @@ main .orderTable table{
     transition: all 0.3s ease;
 }
 
-main .orderTable table:hover{
+main .orderTable table:hover {
     box-shadow: none;
 }
 
-main table tbody td{
+main table tbody td {
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
 }
 
-main table tbody tr:last-child td{
+main table tbody tr:last-child td {
     border: none;
 }
 
-main .orderTable a{
+main .orderTable a {
     text-align: center;
     display: block;
     margin: 1rem auto;

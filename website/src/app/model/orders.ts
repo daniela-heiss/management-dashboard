@@ -9,4 +9,4 @@ export interface Orders {
     O_SHIPPRIORITY: number;
     O_COMMENT: string;
     CountedOrders?: number;
-  }
+}

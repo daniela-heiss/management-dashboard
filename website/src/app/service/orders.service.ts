@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class OrdersService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   public listOrders(): Observable<OrdersDTO[]> {
     return this.httpClient.get<OrdersDTO[]>('http://localhost:8080/orders')
