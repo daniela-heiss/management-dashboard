@@ -6,8 +6,12 @@ import { getTotalRev } from '../controller/orderController.js'
 
 
 const routerOrders = Router();
+
 routerOrders.get('/orders', getAllOrders);
 routerOrders.get('/orders/expected', getExpectedRev);
 routerOrders.get('/orders/getYearRev', getYearRev);
 routerOrders.get('/orders/revenue', getTotalRev);
-export { routerOrders }
+
+export {
+    routerOrders
+}

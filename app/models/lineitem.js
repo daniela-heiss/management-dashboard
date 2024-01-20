@@ -1,91 +1,74 @@
-import{ dataTypes,sequelize} from './dbconnection.js';
+import { dataTypes, sequelize } from './dbconnection.js';
 
-const lineItem = sequelize.define('LINEITEM',
-{
-    L_ORDERKEY: 
-    {
+const lineItem = sequelize.define('LINEITEM', {
+    L_ORDERKEY: {
         type: dataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
-    L_PARTKEY:
-    {
+    L_PARTKEY: {
         type: dataTypes.UUID,
         allowNull: false
     },
-    L_SUPPKEY:
-    {
+    L_SUPPKEY: {
         type: dataTypes.UUID,
         allowNull: false
     },
-    L_LINENUMBER:
-    {
+    L_LINENUMBER: {
         type: dataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
-    L_QUANTITY:
-    {
+    L_QUANTITY: {
         type: dataTypes.DECIMAL,
         allowNull: false
     },
-    L_EXTENDEDPRICE:
-    {
+    L_EXTENDEDPRICE: {
         type: dataTypes.DECIMAL,
         allowNull: false
     },
-    L_DISCOUNT:
-    {
+    L_DISCOUNT: {
         type: dataTypes.DECIMAL,
         allowNull: false
     },
-    L_TAX:
-    {
+    L_TAX: {
         type: dataTypes.DECIMAL,
         allowNull: false
     },
-    L_RETURNFLAG:
-    {
+    L_RETURNFLAG: {
         type: dataTypes.TEXT,
         allowNull: false
     },
-    L_LINESTATUS:
-    {
+    L_LINESTATUS: {
         type: dataTypes.TEXT,
         allowNull: false
     },
-    L_SHIPDATE: 
-    {
+    L_SHIPDATE: {
         type: dataTypes.DATE,
         allowNull: false
     },
-    L_COMMITDATE:
-    {
+    L_COMMITDATE: {
         type: dataTypes.DATE,
         allowNull: false
     },
-    L_RECEIPTDATE:
-    {
+    L_RECEIPTDATE: {
         type: dataTypes.DATE,
         allowNull: false
     },
-    L_SHIPINSTRUCT:
-    {
+    L_SHIPINSTRUCT: {
         type: dataTypes.TEXT,
         allowNull: false
     },
-    L_SHIPMODE:
-    {
+    L_SHIPMODE: {
         type: dataTypes.TEXT,
         allowNull: false
     },
-    L_COMMENT:
-    {
+    L_COMMENT: {
         type: dataTypes.STRING,
         allowNull: false
     }
-},{freezeTableName: true, timestamps: false})
+}, { freezeTableName: true, timestamps: false })
 
-export{
+export {
     lineItem
 }

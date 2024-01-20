@@ -9,7 +9,7 @@ const expectedMostOrders =
     '{"O_CUSTKEY" : "Quavo", "CountedOrders": "1"}]';
 
 
-jest.mock('../controller/select.js', () => {
+jest.mock('cusWithMostOrders', () => {
     return {
         cusWithMostOrders: jest.fn().mockResolvedValue(expectedMostOrders)
     };

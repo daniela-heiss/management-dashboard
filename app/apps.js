@@ -1,5 +1,5 @@
 import bodyParser from "body-parser";
-import { routerCustomer } from './routes/costumerRoutes.js'
+import { routerCustomer } from './routes/customerRoutes.js'
 import { routerOrders } from './routes/ordersRoutes.js'
 import { sequelize } from "./models/dbconnection.js";
 import express from 'express'

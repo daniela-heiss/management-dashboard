@@ -9,4 +9,6 @@ routerCustomer.get('/customer', getAllCustomers);
 routerCustomer.get('/customer/highest', getHighRevenue);
 routerCustomer.get('/customer/most', cusWithMostOrders);
 
-export { routerCustomer }
+export {
+    routerCustomer
+}

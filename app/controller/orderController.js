@@ -2,7 +2,6 @@ import { order } from '../models/orders.js'
 import { sequelize } from '../models/dbconnection.js'
 import { Op } from 'sequelize'
 
-// Function to find the highest Revenue
 async function getTotalRev(request, response) {
     var start = request.query.startDate;
     var end = request.query.endDate;
@@ -26,7 +25,6 @@ async function getTotalRev(request, response) {
 }
 
 
-//Calculate rev per month for a requested year
 async function getYearRev(request, response) {
     var yearInput = Number(request.query.year);
     const month = '01';
@@ -63,7 +61,6 @@ async function getYearRev(request, response) {
     response.json(results);
 }
 
-//Calculate Expected Revenue
 async function getExpectedRev(request, response) {
     var year = 2023;
     var yearInput = Number(request.query.year);
