@@ -64,7 +64,7 @@ export class ProfitChartComponent implements OnInit {
 
   constructor(revenueService: RevenueService) {
     this.maxDate = new Date('2023-12-31');
-    this.minDate = new Date('2022-01-01')
+    this.minDate = new Date('2015-01-01')
 
     this.revenueService = revenueService;
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: fwaProject
--- Generation Time: Jan 18, 2024 at 03:04 PM
+-- Generation Time: Jan 20, 2024 at 03:20 PM
 -- Server version: 11.2.2-MariaDB-1:11.2.2+maria~ubu2204
 -- PHP Version: 8.2.14
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `fwaProject`
 --
-CREATE DATABASE IF NOT EXISTS `fwaProject` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `fwaProject`;
 
 -- --------------------------------------------------------
 
@@ -47,7 +45,9 @@ CREATE TABLE `CUSTOMER` (
 INSERT INTO `CUSTOMER` (`C_CUSTKEY`, `C_NAME`, `C_ADDRESS`, `C_NATIONKEY`, `C_PHONE`, `C_ACCTBAL`, `C_MKTSEGMENT`, `C_COMMENT`) VALUES
 ('J.K Rowling', 'Rowling', 'Hogwarts', 'NY', '05612- 23187329', 20, 'Important People', ''),
 ('Media Markt - Worms', 'Media Markt', 'W.E.P', 'DE', ' 0221 22243333', 500000000, 'Big Stores', ''),
-('Quavo', 'Quavo - Migos', 'REDACTED', 'NY', '', 1000000, 'Muscicians', ''),
+('Quavo', 'Quavo - Migos', 'REDACTED', 'NY', '', 1000000, 'Musician', ''),
+('S. King', 'Stephen King', '47 W Broadway, 04401 Bangor', 'ME', '+1-207-555-8787', 1000000, 'Author', 'Good Customer'),
+('T. Harris', 'Thomas Harris', '47 W Oldway, NY', 'NY', '+1-907-555-2684', 500000, 'Author', ''),
 ('Thomas Mueller', 'Thomas Mueller', 'in-Der-Strasse. 187', 'DE', '0987-3612578', 500, 'Customer', ''),
 ('TJ', 'TJ_Beastboy', 'Unlimited Powerstreet', 'DE', '1337-53537', 100000, 'Musician', ''),
 ('Toom', 'Toom Baumarkt', '10249, Hermann-Blankenstein-Str. 40-44', 'DE', '030 46776210', 0, 'Big Stores', '');
@@ -105,6 +105,7 @@ CREATE TABLE `NATION` (
 INSERT INTO `NATION` (`N_NATIONKEY`, `N_NAME`, `N_REGIONKEY`, `N_COMMENT`) VALUES
 ('DE', 'Deutschland', 'EU', ''),
 ('FR', 'Frankreich', 'EU', ''),
+('ME', 'Maine', 'US', ''),
 ('NY', 'New York', 'US', ''),
 ('SP', 'Spanien', 'EU', '');
 
@@ -142,7 +143,37 @@ INSERT INTO `ORDERS` (`O_ORDERKEY`, `O_CUSTKEY`, `O_ORDERSTATUS`, `O_TOTALPRICE`
 (9, 'Toom', 'DELIVERED', 5000, '2023-11-14', 'HIGH', 'Daniel', 1, ''),
 (10, 'Thomas Mueller', 'DELIVERED', 80, '2023-11-13', 'Low', 'Jason', 1, ''),
 (11, 'Media Markt - Worms', 'DELIVERED', 5000, '2022-08-24', 'HIGH', 'Jason', 1, ''),
-(12, 'J.K Rowling', 'PENDING', 800, '2022-06-15', 'Low', 'Daniel', 0, 'Doesn\'t need to be fast');
+(12, 'J.K Rowling', 'PENDING', 800, '2022-06-15', 'Low', 'Daniel', 0, 'Doesn\'t need to be fast'),
+(13, 'TJ', 'DELIVERED', 100, '2015-12-02', 'HIGH', 'Daniel', 1, ''),
+(14, 'J.K Rowling', 'PENDING', 200, '2016-01-14', 'LOW', 'Jason', 0, 'Owes us money'),
+(15, 'Media Markt - Worms', 'DELIVERED', 300, '2017-02-11', 'HIGH', 'Daniela', 1, ''),
+(16, 'TJ', 'DELIVERED', 400, '2018-04-15', 'HIGH', 'Jason', 1, ''),
+(17, 'Quavo', 'PROCESSING', 500, '2019-06-17', 'LOW', 'Daniel', 0, ''),
+(18, 'Quavo', 'DELIVERED', 600, '2020-11-10', 'High', 'Daniel', 1, ''),
+(19, 'Thomas Mueller', 'Pending', 700, '2021-11-13', 'HIGH', 'Daniela', 1, ''),
+(20, 'TJ', 'DELIVERED', 800, '2022-02-09', 'Low', 'Jason', 1, ''),
+(21, 'Toom', 'DELIVERED', 900, '2022-11-14', 'HIGH', 'Daniel', 1, ''),
+(22, 'Thomas Mueller', 'DELIVERED', 1000, '2023-07-13', 'Low', 'Jason', 1, ''),
+(23, 'Media Markt - Worms', 'DELIVERED', 1100, '2023-08-24', 'HIGH', 'Jason', 1, ''),
+(24, 'J.K Rowling', 'PENDING', 1200, '2023-06-15', 'Low', 'Daniel', 0, 'Doesn\'t need to be fast'),
+(25, 'TJ', 'DELIVERED', 1300, '2015-12-02', 'HIGH', 'Daniel', 1, ''),
+(26, 'J.K Rowling', 'PENDING', 1400, '2016-01-14', 'LOW', 'Jason', 0, 'Owes us money'),
+(27, 'Media Markt - Worms', 'DELIVERED', 1500, '2017-02-11', 'HIGH', 'Daniela', 1, ''),
+(28, 'TJ', 'DELIVERED', 1600, '2018-04-15', 'HIGH', 'Jason', 1, ''),
+(29, 'Quavo', 'PROCESSING', 1700, '2019-06-17', 'LOW', 'Daniel', 0, ''),
+(30, 'Quavo', 'DELIVERED', 1800, '2020-11-10', 'High', 'Daniel', 1, ''),
+(31, 'Thomas Mueller', 'Pending', 1900, '2021-11-13', 'HIGH', 'Daniela', 1, ''),
+(32, 'TJ', 'DELIVERED', 2000, '2022-02-09', 'Low', 'Jason', 1, ''),
+(33, 'Toom', 'DELIVERED', 2100, '2022-11-14', 'HIGH', 'Daniel', 1, ''),
+(34, 'Thomas Mueller', 'DELIVERED', 2200, '2023-07-13', 'Low', 'Jason', 1, ''),
+(35, 'Media Markt - Worms', 'DELIVERED', 2300, '2023-08-24', 'HIGH', 'Jason', 1, ''),
+(36, 'J.K Rowling', 'PENDING', 2400, '2023-06-15', 'Low', 'Daniel', 0, 'Doesn\'t need to be fast'),
+(37, 'TJ', 'DELIVERED', 2500, '2015-12-02', 'HIGH', 'Daniel', 1, ''),
+(38, 'J.K Rowling', 'PENDING', 2600, '2016-01-14', 'LOW', 'Jason', 0, 'Owes us money'),
+(39, 'Media Markt - Worms', 'DELIVERED', 2700, '2017-02-11', 'HIGH', 'Daniela', 1, ''),
+(40, 'TJ', 'DELIVERED', 2800, '2018-04-15', 'HIGH', 'Jason', 1, ''),
+(41, 'S. King', 'DELIVERED', 6500, '2020-07-12', 'HIGH', 'Daniela', 1, ''),
+(42, 'T. Harris', 'Pending', 19000, '2021-11-13', 'Low', 'Jason', 2, '');
 
 -- --------------------------------------------------------
 
@@ -303,8 +334,7 @@ ALTER TABLE `SUPPLIER`
 -- Constraints for table `CUSTOMER`
 --
 ALTER TABLE `CUSTOMER`
-  ADD CONSTRAINT `CUSTOMER_ibfk_1` FOREIGN KEY (`C_NATIONKEY`) REFERENCES `NATION` (`N_NATIONKEY`),
-  ADD CONSTRAINT `OrderCustKey` FOREIGN KEY (`C_CUSTKEY`) REFERENCES `ORDERS` (`O_CUSTKEY`);
+  ADD CONSTRAINT `CUSTOMER_ibfk_1` FOREIGN KEY (`C_NATIONKEY`) REFERENCES `NATION` (`N_NATIONKEY`);
 
 --
 -- Constraints for table `LINEITEM`
