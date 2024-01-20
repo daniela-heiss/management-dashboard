@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { HighestOrderCustomerComponent } from './highest-order-customer.component';
+import { CustomerService } from '../service/customer.service';
 
 describe('HighestOrderCustomerComponent', () => {
   let component: HighestOrderCustomerComponent;
@@ -8,7 +9,9 @@ describe('HighestOrderCustomerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HighestOrderCustomerComponent]
+      declarations: [HighestOrderCustomerComponent],
+      imports: [HttpClientTestingModule],
+      providers: [CustomerService]
     })
       .compileComponents();
 

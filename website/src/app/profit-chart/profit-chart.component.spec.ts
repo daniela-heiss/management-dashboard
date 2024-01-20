@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProfitChartComponent } from './profit-chart.component';
+import { RevenueService } from '../service/revenue.service';
 
 describe('ProfitChartComponent', () => {
   let component: ProfitChartComponent;
@@ -8,7 +9,9 @@ describe('ProfitChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProfitChartComponent]
+      declarations: [ProfitChartComponent],
+      imports: [HttpClientTestingModule],
+      providers: [RevenueService]
     })
       .compileComponents();
 
