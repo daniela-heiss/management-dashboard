@@ -16,11 +16,11 @@ export class CustomerService {
 
   public getHighestRevCustomer(startDate: string, endDate: string): Observable<CustomerDTO[]> {
     const options = {params: new HttpParams().set('startDate', startDate).set('endDate', endDate)};
-    return this.httpClient.get<CustomerDTO[]>('http://localhost:8080/customer_highest', options);
+    return this.httpClient.get<CustomerDTO[]>('http://localhost:8080/customer/highest', options);
   }
 
   public getHighestOrdersCustomer(startDate: string, endDate: string): Observable<CustomerDTO[]> {
     const options = {params: new HttpParams().set('startDate', startDate).set('endDate', endDate)};
-    return this.httpClient.get<CustomerDTO[]>('http://localhost:8080/orders/most', options);
+    return this.httpClient.get<CustomerDTO[]>('http://localhost:8080/customer/most', options);
   }
 }
