@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Revenue } from "../model/revenue";
 import { RevenueService } from "../service/revenue.service";
 import { Observable } from "rxjs";
+import { DecimalPipe } from '@angular/common';
 import { NgForm } from "@angular/forms";
 
 @Component({
