@@ -58,7 +58,7 @@ export class ProfitChartComponent implements OnInit{
 
   private revenueService: RevenueService;
   private subscription: Subscription;
-  //public yearRev: Observable<RevenueYear>
+ 
  yearTotalRev: RevenueYear = {
     January: 0,
     February: 0,
@@ -79,28 +79,15 @@ export class ProfitChartComponent implements OnInit{
     this.minDate = new Date('2022-01-01')
 
     this.revenueService = revenueService;
-    //this.yearRev = this.revenueService.getRevenueYear('2023');
-
-   /* this.revenueService.getRevenueYear('2023').subscribe((data: RevenueYear) => {
-      this.yearTotalRev = data;
-      //console.log(this.yearTotalRev.January);
-    });*/
+    
     this.subscription = this.revenueService.getRevenueYear('2023').subscribe((data: RevenueYear) => {
       this.yearTotalRev = data;
-      //console.log(this.yearTotalRev.November);
       this.generateChart();
     });
   }
 
   async ngOnInit() {
-    //const newDate = this.date.value?.toDate() as Date
-
-   /* this.subscription = this.revenueService.getRevenueYear('2023').subscribe((data: RevenueYear) => {
-      this.yearTotalRev = data;
-      //console.log(this.yearTotalRev.November);
-      this.generateChart();
-    });*/
-    //this.generateChart();
+    
   }
 
   ngOnDestroy(){

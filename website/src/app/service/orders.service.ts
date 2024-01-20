@@ -12,7 +12,6 @@ export class OrdersService {
   constructor(private httpClient: HttpClient) {}
 
   public listOrders(): Observable<OrdersDTO[]> {
-    console.log('execute listOrders');
     return this.httpClient.get<OrdersDTO[]>('http://localhost:8080/orders')
   }
 }

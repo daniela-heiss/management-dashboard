@@ -8,12 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  private baseURL = 'http://localhost:8080/customer';
-
   constructor(private httpClient: HttpClient) {}
 
   public listCustomers(): Observable<CustomerDTO[]> {
-    return this.httpClient.get<CustomerDTO[]>(this.baseURL);
+    return this.httpClient.get<CustomerDTO[]>('http://localhost:8080/customer');
   }
 
   public getHighestRevCustomer(startDate: string, endDate: string): Observable<CustomerDTO[]> {
