@@ -8,7 +8,8 @@ async function getTotalRev(request, response) {
     var end = request.query.endDate;
     const startDate = new Date(start)
     const endDate = new Date(end)
-    var results = await order.sum('O_TOTALPRICE', {
+    var results = await order.findAll({
+        attributes: [[sequelize.fn('SUM', sequelize.col('O_TOTALPRICE')),'O_REVENUE']],
         where: {
             "O_ORDERDATE": {
                 [Op.and]: {
@@ -63,13 +64,6 @@ async function getYearRev(request, response) {
     response.json(results);
 }
 
-
-//Calculate last month Revenue
-async function getLastMonthRev(request, response) {
-    const lastMonthRev = await order.sum('O_TOTALPRICE')
-    response.json(lastMonthRev);
-}
-
 //Calculate Expected Revenue
 async function getExpectedRev(request, response) {
     var year = 2023;
@@ -101,7 +95,6 @@ async function getAllOrders(request, response) {
 
 export {
     getTotalRev,
-    getLastMonthRev,
     getExpectedRev,
     getAllOrders,
     getYearRev

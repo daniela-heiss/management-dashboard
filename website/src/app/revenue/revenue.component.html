@@ -11,7 +11,7 @@
                     <mat-date-range-picker #picker></mat-date-range-picker>
                   </mat-form-field>
                 <h3>Total Revenue</h3>
-                <h1>${{ (totalRev | async)?.O_TOTALPRICE| number }}</h1>
+                <h1>${{(totalRev | async)?.[0]?.O_REVENUE | number}}</h1>
                 </div>
 
                 <div class="revMonth">
@@ -23,7 +23,7 @@
                     </mat-date-range-input>
                   </mat-form-field>
                 <h3>Revenue Last Month</h3>
-                <h1>${{lastMonthRev | async }}</h1>
+                <h1>${{(lastMonthRev | async)?.[0]?.O_REVENUE | number}}</h1>
                 </div>
 
                 <div class="revYear">
@@ -35,6 +35,6 @@
                     </mat-date-range-input>
                   </mat-form-field>
                 <h3>Revenue Last Year</h3>
-                <h1>${{lastYearRev | async}}</h1>   
+                <h1>${{(lastYearRev | async)?.[0]?.O_REVENUE | number}}</h1>   
               </div>
   </div>

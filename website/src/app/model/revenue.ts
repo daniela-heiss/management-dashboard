@@ -1,3 +1,3 @@
 export interface Revenue {
-    O_TOTALPRICE: number;
+  O_REVENUE: number;
   }

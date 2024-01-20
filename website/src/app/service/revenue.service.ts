@@ -11,9 +11,9 @@ export class RevenueService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getRevenue(startDate: string, endDate: string): Observable<Revenue> {
+  public getRevenue(startDate: string, endDate: string): Observable<Revenue[]> {
     const options = {params: new HttpParams().set('startDate', startDate).set('endDate', endDate)};
-    return this.httpClient.get<Revenue>('http://localhost:8080/orders/revenue', options);
+    return this.httpClient.get<Revenue[]>('http://localhost:8080/orders/revenue', options);
   }
 
   public getExpectedRevenue(year: string): Observable<Revenue> {

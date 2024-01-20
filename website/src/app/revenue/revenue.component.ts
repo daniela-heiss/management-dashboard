@@ -13,9 +13,9 @@ import { NgForm } from "@angular/forms";
 export class RevenueComponent implements OnInit {
 
   private revenueService: RevenueService;
-  public totalRev: Observable<Revenue>;
-  public lastMonthRev: Observable<Revenue>;
-  public lastYearRev: Observable<Revenue>;
+  public totalRev: Observable<Revenue[]>;
+  public lastMonthRev: Observable<Revenue[]>;
+  public lastYearRev: Observable<Revenue[]>;
 
   startDate: Date;
   endDate: Date;
