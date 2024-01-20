@@ -4,7 +4,7 @@ import { Op } from 'sequelize'
 import { order } from '../models/orders.js'
 
 async function getAllCustomers(request, response) {
-    const customers = await costumer.findAll();
+    const customers = await customer.findAll();
     response.json(customers);
 }
 

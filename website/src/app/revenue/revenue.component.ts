@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Revenue } from "../model/revenue";
 import { RevenueService } from "../service/revenue.service";
 import { Observable } from "rxjs";
+import { dateToString } from '../utility/functions';
 
 @Component({
   selector: 'app-revenue',
@@ -51,7 +52,7 @@ export class RevenueComponent implements OnInit {
       this.yearStartDate = new Date(lastYearDates[0]);
       this.yearEndDate = new Date(lastYearDates[1]);
 
-      this.totalRev = this.revenueService.getRevenue(this.dateToString(dateStart), this.dateToString(dateEnd));
+      this.totalRev = this.revenueService.getRevenue(dateToString(dateStart), dateToString(dateEnd));
       this.lastYearRev = this.revenueService.getRevenue(lastYearDates[0], lastYearDates[1]);
       this.lastMonthRev = this.revenueService.getRevenue(lastMonthDates[0], lastMonthDates[1]);
     }
@@ -74,8 +75,8 @@ export class RevenueComponent implements OnInit {
     lastYearEnd.setDate(31);
     lastYearEnd.setMonth(11);
 
-    dates[0] = this.dateToString(lastYearStart);
-    dates[1] = this.dateToString(lastYearEnd);
+    dates[0] = dateToString(lastYearStart);
+    dates[1] = dateToString(lastYearEnd);
 
     return dates;
   }
@@ -90,30 +91,18 @@ export class RevenueComponent implements OnInit {
     dateStart.setMonth(dateStart.getMonth() - 1);
     dateStart.setDate(1);
 
-    dateEnd.setDate(26);  //If the prior month has less days than the current, the month stays the same
+    dateEnd.setDate(26);  
     dateEnd.setMonth(dateStart.getMonth());
 
-    lastDayOfMonth.setFullYear(dateEnd.getFullYear());  //the years should be the same to take leap years into account
+    lastDayOfMonth.setFullYear(dateEnd.getFullYear());  
     lastDayOfMonth.setMonth(dateEnd.getMonth() + 1);
     lastDayOfMonth.setDate(0);
 
     dateEnd.setDate(lastDayOfMonth.getDate());
 
-    dates[0] = this.dateToString(dateStart);
-    dates[1] = this.dateToString(dateEnd);
+    dates[0] = dateToString(dateStart);
+    dates[1] = dateToString(dateEnd);
 
     return dates;
-  }
-
-  dateToString(date: Date) {
-    date.setUTCHours(date.getUTCHours() + 2);
-
-    const year = date.toISOString().slice(0, 4);
-    const month = date.toISOString().slice(5, 7);
-    const day = date.toISOString().slice(8, 10);
-
-    const dateString = `${year}-${month}-${day}`;
-
-    return dateString;
   }
 }

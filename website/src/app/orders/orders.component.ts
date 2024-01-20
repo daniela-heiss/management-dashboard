@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersDTO } from "../model/ordersDTO";
 import { OrdersService } from "../service/orders.service";
 import { Observable } from "rxjs";
-import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-orders',

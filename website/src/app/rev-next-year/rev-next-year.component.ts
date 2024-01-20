@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import * as _moment from 'moment';
 import { default as _rollupMoment, Moment } from 'moment';
+import { dateToYear } from '../utility/functions';
 
 const moment = _rollupMoment || _moment;
 
@@ -59,28 +60,6 @@ export class RevNextYearComponent implements OnInit {
     dp.close();
 
     const newDate = this.date.value?.toDate() as Date;
-    this.expectedRev = this.revenueService.getExpectedRevenue(this.dateToYear(newDate));
-  }
-
-  dateToString(date: Date) {
-    date.setUTCHours(date.getUTCHours() + 2);
-
-    const year = date.toISOString().slice(0, 4);
-    const month = date.toISOString().slice(5, 7);
-    const day = date.toISOString().slice(8, 10);
-
-    const dateString = `${year}-${month}-${day}`;
-
-    return dateString;
-  }
-
-  dateToYear(date: Date) {
-    date.setUTCHours(date.getUTCHours() + 2);
-
-    const year = date.toISOString().slice(0, 4);
-
-    const yearString = `${year}`;
-
-    return yearString;
+    this.expectedRev = this.revenueService.getExpectedRevenue(dateToYear(newDate));
   }
 }
