@@ -84,7 +84,7 @@ async function getExpectedRev(request, response) {
     });
     var Multiplikator = 1 + (yearInput - year) * 0.5;
     const MultipliedRev = ExpectedRev * Multiplikator;
-    response.json(MultipliedRev);
+    response.json([{O_REVENUE: MultipliedRev}]);
 }
 
 async function getAllOrders(request, response) {

@@ -92,17 +92,21 @@ export class RevenueComponent implements OnInit {
 
     dateStart.setMonth(dateStart.getMonth() -1);
     dateStart.setDate(1);
- 
+
+    dateEnd.setDate(26);  //If the prior month has less days than the current, the month stays the same
     dateEnd.setMonth(dateStart.getMonth());
 
+    lastDayOfMonth.setFullYear(dateEnd.getFullYear());  //the years should be the same to take leap years into account
     lastDayOfMonth.setMonth(dateEnd.getMonth() + 1);
     lastDayOfMonth.setDate(0);
+    console.log(lastDayOfMonth);
 
     dateEnd.setDate(lastDayOfMonth.getDate());
+    console.log(dateEnd);
    
     dates[0] = this.dateToString(dateStart);
     dates[1] = this.dateToString(dateEnd);
-
+  
     return dates;
   }
 

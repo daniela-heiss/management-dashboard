@@ -50,7 +50,7 @@ export const MY_FORMATS = {
 export class RevNextYearComponent implements OnInit{
   date = new FormControl(moment('2024-01-01'));
   private revenueService: RevenueService;
-  public expectedRev: Observable<Revenue>;
+  public expectedRev: Observable<Revenue[]>;
   minDate = new Date('2024-01-01');
 
   constructor(revenueService: RevenueService){

@@ -16,9 +16,9 @@ export class RevenueService {
     return this.httpClient.get<Revenue[]>('http://localhost:8080/orders/revenue', options);
   }
 
-  public getExpectedRevenue(year: string): Observable<Revenue> {
+  public getExpectedRevenue(year: string): Observable<Revenue[]> {
     const options = {params: new HttpParams().set('year', year)};
-    return this.httpClient.get<Revenue>('http://localhost:8080/orders/expected', options);
+    return this.httpClient.get<Revenue[]>('http://localhost:8080/orders/expected', options);
   }
 
   public getRevenueYear(year: string): Observable<RevenueYear> {
