@@ -1,5 +1,5 @@
 import { describe, expect, it, jest } from '@jest/globals';
-import { cusWithMostOrders } from '../controller/select.js';
+import { cusWithMostOrders } from '../controller/customerController';
 
 
 const expectedMostOrders =
@@ -9,7 +9,7 @@ const expectedMostOrders =
     '{"O_CUSTKEY" : "Quavo", "CountedOrders": "1"}]';
 
 
-jest.mock('cusWithMostOrders', () => {
+jest.mock('../controller/customerController.js', () => {
     return {
         cusWithMostOrders: jest.fn().mockResolvedValue(expectedMostOrders)
     };

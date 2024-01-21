@@ -4,7 +4,7 @@ import { routerOrders } from './routes/ordersRoutes.js'
 import { sequelize } from "./models/dbconnection.js";
 import express from 'express'
 
-var app = express()
+var app = express();
 const db = sequelize;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -28,7 +28,7 @@ function setHeaders(res) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type', 'Authorization');
 }
 app.listen(8080, () => {
-    console.log("Server ist online!")
+    console.log("Server ist online auf http://localhost:8080/");
 })
 
 db.authenticate()
