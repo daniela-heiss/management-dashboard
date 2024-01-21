@@ -50,3 +50,44 @@ main {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
 }
+
+/* Tables */
+
+.divTable {
+    margin-top: 1.3rem;
+}
+
+.divTable h2 {
+    margin-bottom: 0.8rem;
+}
+
+.divTable table {
+    background-color: var(--color-white);
+    width: 100%;
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+}
+
+.divTable table:hover {
+    box-shadow: none;
+}
+
+table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+table tbody tr:last-child td {
+    border: none;
+}
+
+.divTableTable a {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-font);
+}

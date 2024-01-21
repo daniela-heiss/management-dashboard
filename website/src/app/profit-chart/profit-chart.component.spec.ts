@@ -24,7 +24,6 @@ describe('ProfitChartComponent', () => {
         MatInputModule,
         ReactiveFormsModule,
         BrowserAnimationsModule
-        
       ],
       providers: [RevenueService]
     })

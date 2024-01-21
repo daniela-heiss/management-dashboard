@@ -46,7 +46,6 @@ const modules = [
     RevNextYearComponent,
     HighestRevCustomerComponent,
     HighestOrderCustomerComponent,
-    MatFormField
   ],
   imports: [...modules],
   exports: [...modules],
