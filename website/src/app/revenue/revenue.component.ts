@@ -28,13 +28,13 @@ export class RevenueComponent implements OnInit {
     this.endDate = new Date('2023-12-13');
     this.monthStartDate = new Date('2023-11-01');
     this.monthEndDate = new Date('2023-11-30');
-    this.yearStartDate = new Date('2022-01-31');
+    this.yearStartDate = new Date('2022-01-01');
     this.yearEndDate = new Date('2022-12-31');
 
     this.revenueService = revenueService;
-    this.totalRev = this.revenueService.getRevenue('2023-12-11', '2023-12-13');
-    this.lastMonthRev = this.revenueService.getRevenue('2023-11-01', '2023-11-30');
-    this.lastYearRev = this.revenueService.getRevenue('2022-01-31', '2022-12-31');
+    this.totalRev = this.revenueService.getRevenue(dateToString(this.startDate), dateToString(this.endDate));
+    this.lastMonthRev = this.revenueService.getRevenue(dateToString(this.monthStartDate), dateToString(this.monthEndDate));
+    this.lastYearRev = this.revenueService.getRevenue(dateToString(this.yearStartDate), dateToString(this.yearEndDate));
   }
 
   ngOnInit() { }

@@ -134,3 +134,13 @@ table tbody tr:last-child td {
     gap: 1.8rem;
     grid-template-columns: auto auto;
 }
+
+//Year Picker
+
+.yearPicker .mat-calendar-period-button {
+    pointer-events: none;
+}
+
+.yearPicker .mat-calendar-arrow {
+    display: none;
+}

@@ -12,13 +12,10 @@ export class CustomerComponent implements OnInit {
   private customerService: CustomerService;
   public customers: Observable<CustomerDTO[]>;
 
-
   constructor(customerService: CustomerService) {
 
     this.customerService = customerService;
     this.customers = this.customerService.listCustomers();
-
-
   }
 
   ngOnInit() {}

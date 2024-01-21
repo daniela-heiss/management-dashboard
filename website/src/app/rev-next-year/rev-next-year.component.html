@@ -3,7 +3,7 @@
     <input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date" [min]="minDate" readonly>
     <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
     <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event, dp)"
-      panelClass="example-month-picker">
+      panelClass="yearPicker">
     </mat-datepicker>
   </mat-form-field>
   <h3>Expected Revenue per Year</h3>

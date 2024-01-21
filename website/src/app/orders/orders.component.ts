@@ -11,13 +11,11 @@ import { Observable } from "rxjs";
 export class OrdersComponent implements OnInit {
   private ordersService: OrdersService;
   public orders: Observable<OrdersDTO[]>;
-  public errorMessage: string;
 
   constructor(ordersService: OrdersService) {
 
     this.ordersService = ordersService;
     this.orders = this.ordersService.listOrders();
-    this.errorMessage = '';
   }
   ngOnInit(): void {
   }
