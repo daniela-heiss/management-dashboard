@@ -4,14 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 //Date-Picker
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 //App-Components
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -47,7 +45,8 @@ const modules = [
     RevenueComponent,
     RevNextYearComponent,
     HighestRevCustomerComponent,
-    HighestOrderCustomerComponent
+    HighestOrderCustomerComponent,
+    MatFormField
   ],
   imports: [...modules],
   exports: [...modules],

@@ -2,6 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { HighestOrderCustomerComponent } from './highest-order-customer.component';
 import { CustomerService } from '../service/customer.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('HighestOrderCustomerComponent', () => {
   let component: HighestOrderCustomerComponent;
@@ -10,7 +16,13 @@ describe('HighestOrderCustomerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HighestOrderCustomerComponent],
-      imports: [HttpClientTestingModule],
+      imports: [
+              HttpClientTestingModule,
+              MatFormFieldModule,
+              MatDatepickerModule,
+              MatNativeDateModule,
+              BrowserAnimationsModule
+              ],
       providers: [CustomerService]
     })
       .compileComponents();
