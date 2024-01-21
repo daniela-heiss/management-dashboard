@@ -62,7 +62,7 @@ async function getYearRev(request, response) {
 }
 
 async function getExpectedRev(request, response) {
-    var year = 2023;
+    var referenceYear = 2023;
     var yearInput = Number(request.query.year);
     var startDate = '2023-01-01';
     var endDate = '2023-12-31';
@@ -78,7 +78,7 @@ async function getExpectedRev(request, response) {
         }
 
     });
-    var Multiplikator = 1 + (yearInput - year) * 0.5;
+    var Multiplikator = 1 + (yearInput - referenceYear) * 0.5;
     const MultipliedRev = ExpectedRev * Multiplikator;
     response.json([{O_REVENUE: MultipliedRev}]);
 }

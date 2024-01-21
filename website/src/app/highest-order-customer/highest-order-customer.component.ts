@@ -19,10 +19,10 @@ export class HighestOrderCustomerComponent implements OnInit {
 
   constructor(customerService: CustomerService) {
     this.customerService = customerService;
-    this.customers = this.customerService.getHighestOrdersCustomer('2023-12-11', '2023-12-13');
+    this.customers = this.customerService.getHighestOrdersCustomer('2023-01-01', '2023-12-31');
 
-    this.startDate = new Date('12/11/2023');
-    this.endDate = new Date('12/13/2023');
+    this.startDate = new Date('01/01/2023');
+    this.endDate = new Date('12/31/2023');
   }
 
   ngOnInit(): void {
