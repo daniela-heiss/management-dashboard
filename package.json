@@ -1,1 +1,15 @@
-{}
+{
+  "name": "fwa-project",
+  "version": "1.0.0",
+  "description": "--- Date: 20.10.23 Title: Fullstack Webdev Name: Daniel, Daniela und Jason ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "n": "^9.2.0"
+  }
+}

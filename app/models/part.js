@@ -1,41 +1,33 @@
-import{ dataTypes,sequelize} from './dbconnection.js';
+import { dataTypes, sequelize } from './dbconnection.js';
 
-const part = sequelize.define('PART',
-{
-    P_PARTKEY: 
-    {
+const part = sequelize.define('PART', {
+    P_PARTKEY: {
         type: dataTypes.UUID,
         autoIncrement: true,
         primaryKey: true,
         allowNull: false
     },
-    P_NAME:
-    {
+    P_NAME: {
         type: dataTypes.STRING,
         allowNull: false
     },
-    P_MFGR:
-    {
+    P_MFGR: {
         type: dataTypes.TEXT,
         allowNull: false
     },
-    P_BRAND:
-    {
+    P_BRAND: {
         type: dataTypes.TEXT,
         allowNull: false
     },
-    P_TYPE:
-    {
+    P_TYPE: {
         type: dataTypes.STRING,
         allowNull: false
     },
-    P_SIZE:
-    {
+    P_SIZE: {
         type: dataTypes.INTEGER,
         allowNull: false
     },
-    P_CONTAINER:
-    {
+    P_CONTAINER: {
         type: dataTypes.TEXT,
         allowNull: false
     },
@@ -49,9 +41,9 @@ const part = sequelize.define('PART',
         type: dataTypes.STRING,
         allowNull: false
     }
-    
-},{freezeTableName: true, timestamps: false})
 
-export{
+}, { freezeTableName: true, timestamps: false })
+
+export {
     part
 }

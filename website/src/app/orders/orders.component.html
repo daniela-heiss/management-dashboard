@@ -1,25 +1,34 @@
 <main>
     <h1>Orders</h1>
-<div class="recent-orders">
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Order Number</th>
-                <th>Customer Number</th>
-                <th>Status</th>
-                <th>Total Price</th>
-                <th>Order Date</th>
-                <th>Order Priority</th>
-                <th>Clerk</th>
-                <th>Shipping Priority</th>
-                <th>Comments</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <a href="#">Show All</a>
-</div>
-<script src="orders.component.ts"></script>
+    <div class="divTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Customer Number</th>
+                    <th>Status</th>
+                    <th>Total Price</th>
+                    <th>Order Date</th>
+                    <th>Order Priority</th>
+                    <th>Clerk</th>
+                    <th>Shipping Priority</th>
+                    <th>Comments</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of orders | async">
+                    <td>{{e.O_ORDERKEY}}</td>
+                    <td>{{e.O_CUSTKEY}}</td>
+                    <td>{{e.O_ORDERSTATUS}}</td>
+                    <td>${{e.O_TOTALPRICE | number}}</td>
+                    <td>{{e.O_ORDERDATE}}</td>
+                    <td>{{e.O_ORDERPRIORITY}}</td>
+                    <td>{{e.O_CLERK}}</td>
+                    <td>{{e.O_SHIPPRIORITY}}</td>
+                    <td>{{e.O_COMMENT}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </main>

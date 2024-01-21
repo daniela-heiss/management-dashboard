@@ -1,44 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OrdersDTO } from "../model/ordersDTO";
+import { OrdersService } from "../service/orders.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.scss'
 })
-export class OrdersComponent {
+export class OrdersComponent implements OnInit {
+  private ordersService: OrdersService;
+  public orders: Observable<OrdersDTO[]>;
+  public errorMessage: string;
 
+  constructor(ordersService: OrdersService) {
+
+    this.ordersService = ordersService;
+    this.orders = this.ordersService.listOrders();
+    this.errorMessage = '';
+  }
+  ngOnInit(): void {
+  }
 }
-
-const Orders = [
-  {
-      productName: 'JavaScript Tutorial',
-      productNumber: '85743',
-      paymentStatus: 'Due',
-      status: 'Pending'
-  },
-  {
-      productName: 'CSS Full Course',
-      productNumber: '97245',
-      paymentStatus: 'Refunded',
-      status: 'Declined'
-  },
-  {
-      productName: 'Flex-Box Tutorial',
-      productNumber: '36452',
-      paymentStatus: 'Paid',
-      status: 'Active'
-  },
-]
-
-//Orders.forEach(order => {
-  //const tr = document.createElement('tr');
-  //const trContent = `
-    //  <td>${order.productName}</td>
-      //<td>${order.productNumber}</td>
-      //<td>${order.paymentStatus}</td>
-      //<td class="${order.status === 'Declined' ? 'danger' : order.status === 'Pending' ? 'warning' : 'primary'}">${order.status}</td>
-      //<td class="primary">Details</td>
-  //`;
-  //tr.innerHTML = trContent;
-  //document.querySelector('table tbody').appendChild(tr);
-//});

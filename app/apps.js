@@ -1,29 +1,36 @@
-import express, { request, response } from "express"
 import bodyParser from "body-parser";
-import {routerSupplier as supplierRouter} from './routes/supplierRoutes.js'
-import {routerCustomer as costumerRouter} from './routes/costumerRoutes.js'
-import {routerCustomer as highRevenueRouter} from "./routes/costumerRoutes.js"
-import { routerItems as itemRouter} from "./routes/itemRoutes.js";
-import {routerOrders} from './routes/ordersRoutes.js'
+import { routerCustomer } from './routes/customerRoutes.js'
+import { routerOrders } from './routes/ordersRoutes.js'
 import { sequelize } from "./models/dbconnection.js";
+import express from 'express'
 
+var app = express()
 const db = sequelize;
-const app = express();
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.json());
 
-app.use(supplierRouter);
-app.use(costumerRouter);
-app.use(highRevenueRouter);
+const CORS = function (req, res, next) {
+    setHeaders(res);
+    next();
+}
+
+app.use(CORS);
+app.use(routerCustomer);
 app.use(routerOrders);
-app.use(itemRouter);
 
+function setHeaders(res) {
+    res.header('Access-Control-Expose-Headers', 'ETag');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type', 'Authorization');
+}
+app.listen(8080, () => {
+    console.log("Server ist online!")
+})
 
 db.authenticate()
- .then(() => console.log('Database connected'))
- .catch(err => console.log('Error: ' + err))
-
-export{
-    app
-}
+    .then(() => console.log('Database connected'))
+    .catch(err => console.log('Error: ' + err))

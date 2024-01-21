@@ -1,0 +1,62 @@
+<div class="customerBlock">
+    <div class="titleDatepicker">
+        <h2>Highest Order Customer</h2>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date" #dateRangeStart [value]="startDate" readonly>
+                <input matEndDate placeholder="End date" #dateRangeEnd [value]="endDate"
+                    (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)" readonly>
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+    </div>
+
+    <div class="customer-list">
+        <div class="customer">
+            <h1 [ngClass]="{'alt': (customers | async)?.[0]?.C_COUNTEDORDERS === null}">
+                {{(customers | async)?.[0]?.C_COUNTEDORDERS? (customers | async)?.[0]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
+            </h1>
+            <h2>{{(customers | async)?.[0]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[0]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[0]?.C_NATIONKEY}}</p>
+        </div>
+
+        <div class="customer">
+            <h1 [ngClass]="{'alt': (customers | async)?.[1]?.C_COUNTEDORDERS === null}">
+                {{(customers | async)?.[1]?.C_COUNTEDORDERS? (customers | async)?.[1]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
+            </h1>
+            <h2>{{(customers | async)?.[1]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[1]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[1]?.C_NATIONKEY}}</p>
+        </div>
+
+        <div class="customer">
+            <h1 [ngClass]="{'alt': (customers | async)?.[2]?.C_COUNTEDORDERS === null}">
+                {{(customers | async)?.[2]?.C_COUNTEDORDERS? (customers | async)?.[2]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
+            </h1>
+            <h2>{{(customers | async)?.[2]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[2]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[2]?.C_NATIONKEY}}</p>
+        </div>
+
+        <div class="customer">
+            <h1 [ngClass]="{'alt': (customers | async)?.[3]?.C_COUNTEDORDERS === null}">
+                {{(customers | async)?.[3]?.C_COUNTEDORDERS? (customers | async)?.[3]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
+            </h1>
+            <h2>{{(customers | async)?.[3]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[3]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[3]?.C_NATIONKEY}}</p>
+        </div>
+        
+        <div class="customer">
+            <h1 [ngClass]="{'alt': (customers | async)?.[4]?.C_COUNTEDORDERS === null}">
+                {{(customers | async)?.[4]?.C_COUNTEDORDERS? (customers | async)?.[4]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
+            </h1>
+            <h2>{{(customers | async)?.[4]?.C_NAME}}</h2>
+            <p>{{(customers | async)?.[4]?.C_CUSTKEY}}</p>
+            <p>{{(customers | async)?.[4]?.C_NATIONKEY}}</p>
+        </div>
+    </div>
+</div>

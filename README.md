@@ -1,5 +1,5 @@
 ---
-Date: 20.10.23 - Until End of Project
+Date: 20.10.23
 Title: Fullstack Webdev
 Name: Daniel, Daniela und Jason
 ---
@@ -8,57 +8,79 @@ Name: Daniel, Daniela und Jason
 # **Fullstack Webentwicklung**
 
 
-### Who's Expert?
-Daniela: Most Frontend. 
-Daniel: Backend(Alles ausser Datenbanken).
-Jason: Datenbanken & Virtualisierung, Rest.
+### Who did What?
+Daniela: Frontend und Serviceschicht
+Daniel: Backend
+Jason: Datenbanken & Virtualisierung 
 
 
-### Anforderungen ans Projekt
+### Requirements to the Project
 Frontend: Angular 
 Backend: Node.JS
-Datenbanke: MongoDB, MariaDB (Soll einfach austauschbar sein.)
+Datenbanke: MariaDB
 
+# Documentation
 
-### Fragen? 
-Fragen wie Projekt vorgestellt wird.
-- Decision support system erstellen.
-    - Oeberflaeche soll ein Management System sein.
-    - Basis fuer die ANwendung ist Datenmodell (uebung 2)
-    - angular (fragen aus uebung 4)
-- node.js backend soll auf eigene Test Api zugreifen und so die Daten abgreifen welche obige anforderungen erfuellen. 
-Backend auch Docker? 
-- Backend kann auch rein (Der prof empfiehlt) 
-    
-    
-### Documentation
+## Installation & Setup
+Since we're using Linux for our Testing/Prod environment, this Installation will follow a "Linux Debian" setup.
+#### Docker installation
+- Debian & Ubuntu:
+    > sudo apt install docker  
+    > sudo apt install docker-compose
+- Make sure you have docker correctly setup
+    - User is in group docker
+        > groups
+    - if output does not inclue "docker"
+        > sudo usermod -a -G docker "username"
+        - and reboot machine.
+- You can download the source code in a .zip or clone the repo
+    - If you want to use https, you can skip the next step
+    - If you want to clone using SSH: Please make sure you have setup an SSH-Key for the cloning. 
+        - If you haven't, please follow this guide from Github (this is for Linux): 
+            > https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux
+#### Installing the Repo:
+- Git clone the repo.
+    > git clone 
+    - https:
+    > https://gitlab.ai.it.hs-worms.de/fullstack-webapplications-wise-2023/group-d/fwa-project
+    - ssh:
+    > [git@gitlab.ai.it.hs-worms.de:fullstack-webapplications-wise-2023/group-d/fwa-project.git](git@gitlab.ai.it.hs-worms.de:fullstack-webapplications-wise-2023/group-d/fwa-project.git)
+- enter fwa-project/
+    > cd fwa-project/
+- Install npm
+    > sudo apt install npm 
+- Install the Node packages needed
+    > npm install
+- Use following Command to fire up the Docker Container:
+    > docker-compose -f docker-compose.yml up --detach
+    - Should you run into an "no such file" error. (Happens on WSL environments).
+        > sudo service docker start
+#### Importing the Dummy-Data into the DB
+- Step into the DB folder
+    > cd db/
+- Once inside you can use the following command to import (If you've changed the Password in docker-compose, you may use a different set of user:password)
+    > docker exec -i db mariadb -u root -p"example" fwaProject < fwaProject.sql
 
+#### Running the Server
+- Go into fwa-project/app/ folder to install needed modules for the Backend:
+    > cd ../app/
+    > npm install
+- After installing, run the backend Server:
+    > node apps.js &
+- Now you can go and setup the front-end:
+    > cd ../website/
+    > npm install
+    > npm run ng serve
 
-| Inhaltsverzeichnis | 
-| -------- | 
-| [Dependencies](#Dependencies)|
-| [Database](#Database)|
+#### Accessing the Homepage
+- The most simple step, navigate to
+    > http://localhost:4200/
+- and you will see the homepage.
 
-
-#### Installation
-
-
-> Debian: sudo apt install docker || sudo apt install docker-compose
-
-Andere distro's funktionieren auch so, nur halt mit eigenem Package manager.
-Dann das repo clonen und dann:
-
-> docker-compose -f docker-compose.yml up --detach
-
-#### Database
-Hier stehen paar notizen zur DB
-- Wir verwenden MariaDB
-    - Warum?
-        - Weil Jason (Der mann der DB) mit MariaDB schonma gearbeitet hat und so weniger lernzeit besteht.
-- Zum Konfigurieren der DB verwenden wir phpmyadmin
-    - Warum?
-        - Siehe oben
-    - Warum ueberhaupt extern Konfigurieren?
-        - Spart viel zeit und aufwand
-- docker-compose.yml 
-    - Organisiert was gebraucht wird um den Docker container zu starten und zu benutzen.
+## Managing Data
+#### Managing the DB
+- You can manage the DB by either using the mariadb-cli tool which is in included in the Docker container
+- You can use the Phpmyadmin interface which you can find under: 
+    > Find it under: localhost:8085
+    > Server: fwaProject | User: root | Pass: example
+- You will find our Database modell in the TPC-H specification

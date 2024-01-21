@@ -13,7 +13,6 @@ RUN npm install -g directory-import
 
 RUN rm -f .npmrc
 EXPOSE 8000
-
 EXPOSE 3000
 EXPOSE 9229
 CMD ["sh", "-c","--","echo 'started';while true; do sleep 1000; done"]

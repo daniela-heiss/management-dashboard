@@ -1,6 +1,6 @@
 <main>
     <h1>Customer</h1>
-    <div class="recent-orders">
+    <div class="divTable">
         <table>
             <thead>
                 <tr>
@@ -15,8 +15,18 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <tr *ngFor="let customer of customers | async">
+                    <td>{{customer.C_CUSTKEY}}</td>
+                    <td>{{customer.C_NAME}}</td>
+                    <td>{{customer.C_ADDRESS}}</td>
+                    <td>{{customer.C_NATIONKEY}}</td>
+                    <td>{{customer.C_PHONE}}</td>
+                    <td>${{customer.C_ACCTBAL | number}}</td>
+                    <td>{{customer.C_MKTSEGMENT}}</td>
+                    <td>{{customer.C_COMMENT}}</td>
+                </tr>
+            </tbody>
         </table>
-        <a href="#">Show All</a>
     </div>
-    </main>
+</main>
