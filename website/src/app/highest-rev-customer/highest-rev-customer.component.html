@@ -16,12 +16,13 @@
     <div class="customer-list">
         <div class="customer">
             <h1 [ngClass]="{'alt': (customers | async)?.[0]?.C_REVENUE === null}">
-                {{ (customers | async)?.[0]?.C_REVENUE ? '$' + ((customers | async)?.[0]?.C_REVENUE | number) : 'No customer found' }} 
+                {{ (customers | async)?.[0]?.C_REVENUE ? '$' + ((customers | async)?.[0]?.C_REVENUE | number) : 'No customer found' }}
             </h1>
             <h2>{{(customers | async)?.[0]?.C_NAME}}</h2>
             <p>{{(customers | async)?.[0]?.C_CUSTKEY}}</p>
             <p>{{(customers | async)?.[0]?.C_NATIONKEY}}</p>
         </div>
+
         <div class="customer">
             <h1 [ngClass]="{'alt': (customers | async)?.[1]?.C_REVENUE === null}">
                 {{ (customers | async)?.[1]?.C_REVENUE ? '$' + ((customers | async)?.[1]?.C_REVENUE | number) : 'No customer found' }}
@@ -30,6 +31,7 @@
             <p>{{(customers | async)?.[1]?.C_CUSTKEY}}</p>
             <p>{{(customers | async)?.[1]?.C_NATIONKEY}}</p>
         </div>
+        
         <div class="customer">
             <h1 [ngClass]="{'alt': (customers | async)?.[2]?.C_REVENUE === null}">
                 {{ (customers | async)?.[2]?.C_REVENUE ? '$' + ((customers | async)?.[2]?.C_REVENUE | number) : 'No customer found' }}

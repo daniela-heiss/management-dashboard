@@ -22,6 +22,7 @@
             <p>{{(customers | async)?.[0]?.C_CUSTKEY}}</p>
             <p>{{(customers | async)?.[0]?.C_NATIONKEY}}</p>
         </div>
+
         <div class="customer">
             <h1 [ngClass]="{'alt': (customers | async)?.[1]?.C_COUNTEDORDERS === null}">
                 {{(customers | async)?.[1]?.C_COUNTEDORDERS? (customers | async)?.[1]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
@@ -48,6 +49,7 @@
             <p>{{(customers | async)?.[3]?.C_CUSTKEY}}</p>
             <p>{{(customers | async)?.[3]?.C_NATIONKEY}}</p>
         </div>
+        
         <div class="customer">
             <h1 [ngClass]="{'alt': (customers | async)?.[4]?.C_COUNTEDORDERS === null}">
                 {{(customers | async)?.[4]?.C_COUNTEDORDERS? (customers | async)?.[4]?.C_COUNTEDORDERS + ' Orders': 'No orders found'}}
