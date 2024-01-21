@@ -17,14 +17,6 @@
     box-shadow: none;
 }
 
-.titleDatepicker {
-    display: grid;
-    width: 100%;
-    margin: 0 auto;
-    gap: 1.8rem;
-    grid-template-columns: auto auto;
-}
-
 .example-month-picker .mat-calendar-period-button {
     pointer-events: none;
 }

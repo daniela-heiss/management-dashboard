@@ -91,3 +91,42 @@ table tbody tr:last-child td {
     margin: 1rem auto;
     color: var(--color-font);
 }
+
+/* Customer blocks */
+
+.customerBlock {
+    margin-top: 1.3rem;
+}
+
+.customerBlock .customer-list {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.customerBlock .customer-list:hover {
+    box-shadow: none;
+}
+
+.customerBlock .customer-list .customer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleDatepicker {
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: auto auto;
+}
