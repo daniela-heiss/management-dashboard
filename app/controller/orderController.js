@@ -46,7 +46,7 @@ async function getYearRev(request, response) {
                 [sequelize.fn("SUM", sequelize.col('O_TOTALPRICE')), 'O_REVENUE']
             ],
             where: {
-                "O_ORDERDATE": {
+                'O_ORDERDATE': {
                     [Op.and]: {
                         [Op.gte]: start,
                         [Op.lte]: end
