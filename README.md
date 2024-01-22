@@ -84,3 +84,12 @@ Since we're using Linux for our Testing/Prod environment, this Installation will
     > Find it under: localhost:8085
     > Server: fwaProject | User: root | Pass: example
 - You will find our Database modell in the TPC-H specification
+
+## Tests
+#### Running Backend Tests
+- If you want to run Backend Tests:
+    - Make sure you're in folder app/
+    > npm test
+- If you want to run Frontend Tests:
+    - Make sure you're in folder website/
+    > npm run ng test
